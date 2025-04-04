@@ -1,6 +1,6 @@
-#include "mano_lib.h"
+#include "studentClass.h"
 
-void Studentas::skaiciuotiGalutiniSuVidurkiu(){
+void Studentas::skaiciuotiGalutiniSuVid(){
     double pazymiuVidurkis;
     if(pazymiai.size() == 0){
         pazymiuVidurkis = 0.0;
@@ -9,10 +9,10 @@ void Studentas::skaiciuotiGalutiniSuVidurkiu(){
         pazymiuVidurkis = sum / (double)pazymiai.size();
     }
     double galutinis = 0.4 * pazymiuVidurkis + 0.6 * egzaminas;
-    galutinisVid = galutinis;
+    setGalutinisV(galutinis);
 }
 
-void Studentas::skaiciuotiGalutiniSuMediana(){
+void Studentas::skaiciuotiGalutiniSuMed(){
     int n = pazymiai.size();
     int med;
     if (n == 0){
@@ -27,7 +27,7 @@ void Studentas::skaiciuotiGalutiniSuMediana(){
     }
 
     double galutinis = 0.4 * med + 0.6 * egzaminas;
-    galutinisMed = galutinis;
+    setGalutinisM(galutinis);
 }
 
 void rodytiRezultatus(vector<Studentas> studentuSarasas){
@@ -44,7 +44,6 @@ void rodytiRezultatus(vector<Studentas> studentuSarasas){
         cout << std::setw(20) << "Galutinis (Vid.)" << endl;
         cout << "---------------------------------------------------------" << endl;
         for (Studentas s : studentuSarasas){
-            s.skaiciuotiGalutiniSuVidurkiu();
             cout << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid<< endl;
         }
     } else if (choice == 1){

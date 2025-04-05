@@ -2,31 +2,31 @@
 
 void Studentas::skaiciuotiGalutiniSuVid(){
     double pazymiuVidurkis;
-    if(pazymiai.size() == 0){
+    if(pazymiai().size() == 0){
         pazymiuVidurkis = 0.0;
     } else {
-        double sum = accumulate(pazymiai.begin(), pazymiai.end(),0);
-        pazymiuVidurkis = sum / (double)pazymiai.size();
+        double sum = accumulate(pazymiai().begin(), pazymiai().end(),0);
+        pazymiuVidurkis = sum / (double)pazymiai().size();
     }
-    double galutinis = 0.4 * pazymiuVidurkis + 0.6 * egzaminas;
+    double galutinis = 0.4 * pazymiuVidurkis + 0.6 * egzaminas();
     setGalutinisV(galutinis);
 }
 
 void Studentas::skaiciuotiGalutiniSuMed(){
-    int n = pazymiai.size();
+    int n = pazymiai().size();
     int med;
     if (n == 0){
         med = 0;
     } else { 
-        sort(pazymiai.begin(), pazymiai.end());
+        sort(pazymiai().begin(), pazymiai().end());
         if ( n % 2 != 0){
-            med = (double)pazymiai[n/2];
+            med = (double)pazymiai()[n/2];
         } else {
-            med = (double)(pazymiai[(n-1)/2] + pazymiai[n/2]) / 2.0;
+            med = (double)(pazymiai()[(n-1)/2] + pazymiai()[n/2]) / 2.0;
         }
     }
 
-    double galutinis = 0.4 * med + 0.6 * egzaminas;
+    double galutinis = 0.4 * med + 0.6 * egzaminas();
     setGalutinisM(galutinis);
 }
 
@@ -44,14 +44,13 @@ void rodytiRezultatus(vector<Studentas> studentuSarasas){
         cout << std::setw(20) << "Galutinis (Vid.)" << endl;
         cout << "---------------------------------------------------------" << endl;
         for (Studentas s : studentuSarasas){
-            cout << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid<< endl;
+            cout << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << endl;
         }
     } else if (choice == 1){
         cout << std::setw(20) << "Galutinis (Med.)" << endl;
         cout << "---------------------------------------------------------" << endl;
         for (Studentas s : studentuSarasas){
-            s.skaiciuotiGalutiniSuMediana();
-            cout << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed << endl;
+            cout << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
         }
         } else {
             cout << "Neteisingai įvestas pasirinkimas";
@@ -62,7 +61,7 @@ void rodytiVisusRezultatus(vector<Studentas> studentuSarasas){
     std::ostringstream buferis;
     buferis << std::left << std::setw(20) << "Pavardė" << std::setw(20) << "Vardas" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Vid.)" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Med.)" << endl;
     for (Studentas s: studentuSarasas){
-        buferis << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed << endl;
+        buferis << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
     }
 
     int choice;
@@ -89,12 +88,11 @@ void generuotiPazymius(vector<Studentas> &studentuSarasas){
         int pazymiuKiekis = 3 + (rand() % 18);
         for (int x = 0; x < pazymiuKiekis; x++){
             int pazymys = 1 + (rand() % 10);
-            s.pazymiai.push_back(pazymys);
+            s.pazymiai().push_back(pazymys);
         }
         int egzPazymys = 1 + (rand() % 10);
-        s.egzaminas = egzPazymys;
-        s.skaiciuotiGalutiniSuMediana();
-        s.skaiciuotiGalutiniSuVidurkiu();
+        s.skaiciuotiGalutiniSuMed();
+        s.skaiciuotiGalutiniSuVid();
     }
 }
 

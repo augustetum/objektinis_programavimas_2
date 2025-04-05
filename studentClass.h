@@ -33,22 +33,27 @@ class Studentas {
         double galutinisMed;
         double galutinisVid;
         double pazymiuVidurkis;
-        std::vector<double> pazymiai;
+        std::vector<int> pazymiai;
     
     public:
+        Studentas(string var, string pav, vector<double> paz, double egz) :  vardas{var}, pavarde{pav}, pazymiai{paz}, egzaminas{egz} {}
         Studentas() : egzaminas(0) { } 
         Studentas(std::istream& is);
+
         //get'eriai
         inline std::string vardas() const { return vardas; }    
         inline std::string pavarde() const { return pavarde; } 
         inline double galutinisMed() const { return galutinisMed;}
         inline double galutinisVid() const { return galutinisVid;}
+        inline vector<int> pazymiai() const { return pazymiai;}
+        inline int egzaminas() const { return egzaminas; }
 
         //set'eriai
         inline void setVardas(string vardas) { this->vardas = vardas; }
         inline void setPavarde(string pavarde) { this->pavarde = pavarde; }
         inline void setGalutinisV(double galutinisVid) { this->galutinisVid = galutinisVid; }
         inline void setGalutinisM(double galutinisMed) { this->galutinisMed = galutinisMed; }
+        inline void setEgzaminas(int egzaminas) {this-> egzaminas = egzaminas; }
 
         //member funkcijos
         void skaiciuotiGalutiniSuVid();

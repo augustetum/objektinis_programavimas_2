@@ -118,11 +118,10 @@ void generuotiStudentus(vector<Studentas> &studentuSarasas){
     int studentuSkaicius = 4 + (rand()%7);
 
     for (int i = 0; i < studentuSkaicius; i++){
-        Studentas stud;
-        stud.vardas = vardai [rand() % vardai.size()];
-        stud.pavarde = pavardes [rand() % pavardes.size()];
-        stud.skaiciuotiGalutiniSuMediana();
-        stud.skaiciuotiGalutiniSuVidurkiu();
+        string vardas, pavarde;
+        vardas = vardai [rand() % vardai.size()];
+        pavarde = pavardes [rand() % pavardes.size()];
+        Studentas stud(vardas, pavarde);
         studentuSarasas.push_back(stud);
     }
 
@@ -146,19 +145,19 @@ void generuotiFailus(int studentuSkaicius){
     //Studentu generavimas
     for(int i = 1; i <= studentuSkaicius; i++){
         Studentas stud;
-        stud.vardas = "Vardas" + std::to_string(i);
-        stud.pavarde = "Pavarde" + std::to_string(i);
+        stud.setVardas("Vardas" + std::to_string(i));
+        stud.setPavarde("Pavarde" + std::to_string(i));
         for (int x = 0; x < pazymiuKiekis; x++){
             int pazymys = 1 + (rand() % 10);
-            stud.pazymiai.push_back(pazymys);
+            stud.pazymiai().push_back(pazymys);
         }
         int egzPazymys = 1 + (rand() % 10);
-        stud.egzaminas = egzPazymys;
-        buferis << std::left << std::setw(20) << stud.vardas << std::setw(20) << stud.pavarde;
-        for(int i : stud.pazymiai){
+        stud.setEgzaminas(egzPazymys);
+        buferis << std::left << std::setw(20) << stud.vardas() << std::setw(20) << stud.pavarde();
+        for(int i : stud.pazymiai()){
             buferis << std::left << std::setw(20) << i;
         }
-        buferis << std::left << std::setw(20) << stud.egzaminas << endl;
+        buferis << std::left << std::setw(20) << stud.egzaminas() << endl;
     }
     failas << buferis.str();
     failas.close();
@@ -227,11 +226,17 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
             while(getline(buferis, eilut)){
                 Studentas stud;
                 istringstream eilute(eilut);
-                eilute >> stud.vardas >> stud.pavarde;
+                string vardas, pavarde;
+                eilute >> vardas >> pavarde;
 
                 if (eilute.eof()) {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
+
+                stud.setVardas(vardas);
+                stud.setPavarde(pavarde);
+
+                vector<int> pazymiai;
                 
                 while(true){
                     eilute >> pazymys;
@@ -246,16 +251,17 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
                     if (pazymys < 1 || pazymys > 10){
                         throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
                     }
-                    stud.pazymiai.push_back(pazymys);
+                    pazymiai.push_back(pazymys);
                 }
-                if (!stud.pazymiai.empty()) {
-                    stud.egzaminas = stud.pazymiai.back();
-                    stud.pazymiai.pop_back();
+                if (pazymiai.empty()) {
+                    stud.setEgzaminas(pazymiai.back());
+                    pazymiai.pop_back();
+                    stud.setPazymiai(pazymiai);
                 } else {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-                stud.skaiciuotiGalutiniSuMediana();
-                stud.skaiciuotiGalutiniSuVidurkiu();
+                stud.skaiciuotiGalutiniSuMed();
+                stud.skaiciuotiGalutiniSuVid();
 
                 studentuSarasas.push_back(stud);
             }
@@ -263,25 +269,25 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
 
 void rikiuotiPagalVarda(vector<Studentas> &studentuSarasas){
     sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-        return a.vardas < b.vardas;
+        return a.vardas() < b.vardas();
     });
 }
 
 void rikiuotiPagalPavarde(vector<Studentas> &studentuSarasas){
     sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-        return a.pavarde < b.pavarde;
+        return a.pavarde() < b.pavarde();
     });
 }
 
 void rikiuotiPagalGalutiniMed(vector<Studentas> &studentuSarasas){
     sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-        return a.galutinisMed < b.galutinisMed;
+        return a.galutinisMed() < b.galutinisMed();
     });
 }
 
 void rikiuotiPagalGalutiniVid(vector<Studentas> &studentuSarasas){
     sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-        return a.galutinisVid < b.galutinisVid;
+        return a.galutinisVid() < b.galutinisVid();
     });
 }
 
@@ -340,11 +346,17 @@ void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
             while(getline(buferis, eilut)){
                 Studentas stud;
                 istringstream eilute(eilut);
-                eilute >> stud.vardas >> stud.pavarde;
+                string vardas, pavarde;
+                eilute >> vardas >> pavarde;
 
                 if (eilute.eof()) {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
+
+                stud.setVardas(vardas);
+                stud.setPavarde(pavarde);
+
+                vector<int> pazymiai;
                 
                 while(true){
                     eilute >> pazymys;
@@ -359,16 +371,17 @@ void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
                     if (pazymys < 1 || pazymys > 10){
                         throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
                     }
-                    stud.pazymiai.push_back(pazymys);
+                    pazymiai.push_back(pazymys);
                 }
-                if (!stud.pazymiai.empty()) {
-                    stud.egzaminas = stud.pazymiai.back();
-                    stud.pazymiai.pop_back();
+                if (pazymiai.empty()) {
+                    stud.setEgzaminas(pazymiai.back());
+                    pazymiai.pop_back();
+                    stud.setPazymiai(pazymiai);
                 } else {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-                stud.skaiciuotiGalutiniSuMediana();
-                stud.skaiciuotiGalutiniSuVidurkiu();
+                stud.skaiciuotiGalutiniSuMed();
+                stud.skaiciuotiGalutiniSuVid();
 
                 studentuSarasas.push_back(stud);
             }
@@ -401,9 +414,9 @@ void skirstytiStudentus(vector<Studentas> &studentuSarasas){
     vector<Studentas> nepazangus;
     vector<Studentas> pazangus;
     for(Studentas s : studentuSarasas){
-        if (s.galutinisVid < 5){
+        if (s.galutinisVid() < 5){
             nepazangus.push_back(s);
-        } else if (s.galutinisVid >= 5){
+        } else if (s.galutinisVid() >= 5){
             pazangus.push_back(s);
         }
     }
@@ -420,7 +433,7 @@ void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2){
     std::ostringstream buferis;
     buferis << std::left << std::setw(20) << "Pavardė" << std::setw(20) << "Vardas" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Vid.)" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Med.)" << endl;
     for (Studentas s: grupe1){
-        buferis << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed << endl;
+        buferis << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
     }
     std::ofstream failas1("nepazangus.txt");
     failas1 << buferis.str();
@@ -431,7 +444,7 @@ void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2){
     std::ostringstream buferis2;
     buferis2 << std::left << std::setw(20) << "Pavardė" << std::setw(20) << "Vardas" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Vid.)" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Med.)" << endl;
     for (Studentas s: grupe2){
-        buferis2 << std::left << std::setw(20) << s.pavarde << std::setw(20) << s.vardas << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed << endl;
+        buferis2 << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
     }
 
         std::ofstream failas2("pazangus.txt");

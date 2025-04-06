@@ -1,4 +1,4 @@
-#include "mano_lib.h"
+#include "studentClass.h"
 
 int main(){
     bool veikimas = true;
@@ -36,18 +36,19 @@ int main(){
                     
                     while (true){
                         try {
-                            Studentas stud;
+                            string vardas, pavarde;
+                            vector<int> pazymiai;
                             cout << "Įveskite studento vardą (įvedę visus norimus studentus ir norėdami užbaigti rašykite stop)" << endl;
-                            cin >> stud.vardas;
-                            if (stud.vardas == "stop"){
+                            cin >> vardas;
+                            if (vardas == "stop"){
                                 break;
                             }
-                            if (!vardoTikrinimas(stud.vardas)) {
+                            if (!vardoTikrinimas(vardas)) {
                                 throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
                             }
                             cout << "Įveskite studento pavardę" << endl;
-                            cin >> stud.pavarde;
-                            if (!vardoTikrinimas(stud.pavarde)) {
+                            cin >> pavarde;
+                            if (!vardoTikrinimas(pavarde)) {
                                 throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
                             }
                             cout << "Įveskite studento namų darbų pažymius (baigę įveskite -1)" << endl;
@@ -63,23 +64,22 @@ int main(){
                                         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                                         throw std::runtime_error("Neteisingas pažymys! Pažymys susidaro tik iš skaičių, turi būti tarp 1 ir 10");
                                     }
-                                    stud.pazymiai.push_back(input);
+                                    pazymiai.push_back(input);
                                 } catch (const std::runtime_error &e){
                                     cout << e.what() << endl;
                                     continue;
                                 }
                             }
+                            int egzaminas;
                             while (true) {
                                 try {
-                                    int input;
                                     cout << "Įveskite studento egzamino pažymį" << endl;
-                                    cin >> input;
-                                    if(cin.fail() || input < 1 || input > 10) {
+                                    cin >> egzaminas;
+                                    if(cin.fail() || egzaminas < 1 || egzaminas > 10) {
                                         cin.clear();
                                         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                                         throw std::runtime_error("Neteisingas egzamino pažymys! Pažymys susidaro tik iš skaičių, turi būti sveikas skaičius tarp 1 ir 10");
                                     }
-                                    stud.egzaminas = input;
                                     break;
                                 } catch (const std::runtime_error &e){
                                     cout << e.what() << endl;
@@ -87,6 +87,7 @@ int main(){
                                 }
                             }
 
+                            Studentas stud(vardas, pavarde, pazymiai, egzaminas);
                             studentuSarasas.push_back(stud);
                         } catch (const std::runtime_error &e){
                             cout << e.what() << endl;
@@ -104,19 +105,22 @@ int main(){
                     while (true){
                         try {
                             Studentas stud;
+                            string vardas, pavarde;
                             cout << "Įveskite studento vardą (įvedę visus norimus studentus ir norėdami užbaigti rašykite stop)" << endl;
-                            cin >> stud.vardas;
-                            if (stud.vardas == "stop"){
+                            cin >> vardas;
+                            if (vardas == "stop"){
                                 break;
                             }
-                            if (!vardoTikrinimas(stud.vardas)) {
+                            if (!vardoTikrinimas(vardas)) {
                                     throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
                             }
+                            stud.setVardas(vardas);
                             cout << "Įveskite studento pavardę" << endl;
-                            cin >> stud.pavarde;
-                            if (!vardoTikrinimas(stud.pavarde)) {
+                            cin >> pavarde;
+                            if (!vardoTikrinimas(pavarde)) {
                                     throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
                             }
+                            stud.setPavarde(pavarde);
                             studentuSarasas.push_back(stud);
                         } catch (const std::runtime_error &e){
                         cout << e.what() << endl;

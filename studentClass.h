@@ -27,33 +27,41 @@ using std::istringstream;
 class Studentas {
 
     private:
-        std::string vardas;
-        std::string pavarde;
-        double egzaminas;
-        double galutinisMed;
-        double galutinisVid;
-        double pazymiuVidurkis;
-        std::vector<int> pazymiai;
+        string vardas_;
+        string pavarde_;
+        double egzaminas_;
+        double galutinisMed_;
+        double galutinisVid_;
+        double pazymiuVidurkis_;
+        vector<int> pazymiai_;
     
     public:
-        Studentas(string var, string pav, vector<double> paz, double egz) :  vardas{var}, pavarde{pav}, pazymiai{paz}, egzaminas{egz} {}
-        Studentas() : egzaminas(0) { } 
+        Studentas(string var, string pav, vector<int> paz, double egz) :  vardas_{var}, pavarde_{pav}, pazymiai_{paz}, egzaminas_{egz} {
+            skaiciuotiGalutiniSuMed();
+            skaiciuotiGalutiniSuVid();
+        }
+        Studentas(string var, string pav) : vardas_{var}, pavarde_{pav}, egzaminas_(0) {
+            skaiciuotiGalutiniSuMed();
+            skaiciuotiGalutiniSuVid();
+        }
+        Studentas() : egzaminas_(0) { } 
         Studentas(std::istream& is);
 
         //get'eriai
-        inline std::string vardas() const { return vardas; }    
-        inline std::string pavarde() const { return pavarde; } 
-        inline double galutinisMed() const { return galutinisMed;}
-        inline double galutinisVid() const { return galutinisVid;}
-        inline vector<int> pazymiai() const { return pazymiai;}
-        inline int egzaminas() const { return egzaminas; }
+        inline std::string vardas() const { return vardas_; }    
+        inline std::string pavarde() const { return pavarde_; } 
+        inline double galutinisMed() const { return galutinisMed_;}
+        inline double galutinisVid() const { return galutinisVid_;}
+        inline vector<int> pazymiai() const { return pazymiai_;}
+        inline int egzaminas() const { return egzaminas_; }
 
         //set'eriai
-        inline void setVardas(string vardas) { this->vardas = vardas; }
-        inline void setPavarde(string pavarde) { this->pavarde = pavarde; }
-        inline void setGalutinisV(double galutinisVid) { this->galutinisVid = galutinisVid; }
-        inline void setGalutinisM(double galutinisMed) { this->galutinisMed = galutinisMed; }
-        inline void setEgzaminas(int egzaminas) {this-> egzaminas = egzaminas; }
+        inline void setVardas(string var) { vardas_ = var; }
+        inline void setPavarde(string pav) { pavarde_ = pav; }
+        inline void setGalutinisV(double galutVid) { galutinisVid_ = galutVid; }
+        inline void setGalutinisM(double galutMed) { galutinisMed_ = galutMed; }
+        inline void setEgzaminas(int egz) {egzaminas_ = egz; }
+        inline void setPazymiai(vector<int> paz) {pazymiai_ = paz;}
 
         //member funkcijos
         void skaiciuotiGalutiniSuVid();

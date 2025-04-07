@@ -2,7 +2,7 @@
 #define STRATEGIJOS1_BIBL_H
 
 #include <list>
-#include "../mano_lib.h"
+#include "../studentClass.h"
 #include <thread>
 #include <functional>
 
@@ -25,9 +25,12 @@ void nuskaitytiFailaT(string fail, Container &studentuSarasas){
             getline(buferis, eilut);
 
             while(getline(buferis, eilut)){
-                Studentas stud;
                 istringstream eilute(eilut);
-                eilute >> stud.vardas >> stud.pavarde;
+                string vardas, pavarde;
+                vector<int> pazymiai;
+                int egzaminas;
+
+                eilute >> vardas >> pavarde;
 
                 if (eilute.eof()) {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
@@ -46,18 +49,17 @@ void nuskaitytiFailaT(string fail, Container &studentuSarasas){
                     if (pazymys < 1 || pazymys > 10){
                         throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
                     }
-                    stud.pazymiai.push_back(pazymys);
+                    pazymiai.push_back(pazymys);
                 }
-                if (!stud.pazymiai.empty()) {
-                    stud.egzaminas = stud.pazymiai.back();
-                    stud.pazymiai.pop_back();
+                if (!pazymiai.empty()) {
+                    egzaminas = pazymiai.back();
+                    pazymiai.pop_back();
                 } else {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-                stud.skaiciuotiGalutiniSuMediana();
-                stud.skaiciuotiGalutiniSuVidurkiu();
-
+                Studentas stud(vardas, pavarde, pazymiai, egzaminas);
                 studentuSarasas.push_back(stud);
+                pazymiai.clear();
             }
 }
 
@@ -65,11 +67,11 @@ template <typename Container>
 void rikiuotiPagalVardaT(Container &studentuSarasas){
     if constexpr (std::is_same_v<Container, std::list<Studentas>>) {
         studentuSarasas.sort([](const Studentas &a, const Studentas &b) {
-            return a.vardas < b.vardas;
+            return a.vardas() < b.vardas();
         });
     } else {
         sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-            return a.vardas < b.vardas;
+            return a.vardas() < b.vardas();
         });
 
     }
@@ -79,11 +81,11 @@ template <typename Container>
 void rikiuotiPagalPavardeT(Container &studentuSarasas){
     if constexpr (std::is_same_v<Container, std::list<Studentas>>) {
         studentuSarasas.sort([](const Studentas &a, const Studentas &b) {
-            return a.pavarde < b.pavarde;
+            return a.pavarde() < b.pavarde();
         });
     } else {
         sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-            return a.pavarde < b.pavarde;
+            return a.pavarde() < b.pavarde();
         });
 
     }
@@ -93,11 +95,11 @@ template <typename Container>
 void rikiuotiPagalGalutiniMedT(Container &studentuSarasas){
     if constexpr (std::is_same_v<Container, std::list<Studentas>>) {
         studentuSarasas.sort([](const Studentas &a, const Studentas &b) {
-            return a.galutinisMed < b.galutinisMed;
+            return a.galutinisMed() < b.galutinisMed();
         });
     } else {
         sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-            return a.galutinisMed < b.galutinisMed;
+            return a.galutinisMed() < b.galutinisMed();
         });
 
     }
@@ -107,11 +109,11 @@ template <typename Container>
 void rikiuotiPagalGalutiniVidT(Container &studentuSarasas){
     if constexpr (std::is_same_v<Container, std::list<Studentas>>) {
         studentuSarasas.sort([](const Studentas &a, const Studentas &b) {
-            return a.galutinisVid > b.galutinisVid;
+            return a.galutinisVid() > b.galutinisVid();
         });
     } else {
         sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
-            return a.galutinisVid > b.galutinisVid;
+            return a.galutinisVid() > b.galutinisVid();
         });
 
     }
@@ -122,9 +124,9 @@ void skirstytiStudentusSuTaisPaciaisKonteineriaisT(Container &studentuSarasas){
     Container nepazangus;
     Container pazangus;
     for(Studentas s : studentuSarasas){
-        if (s.galutinisVid < 5){
+        if (s.galutinisVid() < 5){
             nepazangus.push_back(s);
-        } else if (s.galutinisVid >= 5){
+        } else if (s.galutinisVid() >= 5){
             pazangus.push_back(s);
         }
     }
@@ -139,7 +141,7 @@ template <typename Container>
 void skirstytiStudentusSuVienuKonteineriuT(Container &studentuSarasas, int rikiavimas){
     Container nepazangus;
     rikiuotiPagalGalutiniVidT(studentuSarasas);
-    while (studentuSarasas.back().galutinisVid < 5) {
+    while (studentuSarasas.back().galutinisVid() < 5) {
         nepazangus.push_back(studentuSarasas.back());
         studentuSarasas.pop_back();
     }
@@ -171,9 +173,9 @@ void skirstytiStudentusT(Container &studentuSarasas){
     Container nepazangus;
     Container pazangus;
     for(Studentas s : studentuSarasas){
-        if (s.galutinisVid < 5){
+        if (s.galutinisVid() < 5){
             nepazangus.push_back(s);
-        } else if (s.galutinisVid >= 5){
+        } else if (s.galutinisVid() >= 5){
             pazangus.push_back(s);
         }
     }
@@ -187,7 +189,7 @@ void skirstytiStudentusT(Container &studentuSarasas){
 
 template <typename Container>
 void studentuSkirstymas3(Container &studentuSarasas, int rikiavimas){
-    auto it = std::partition(studentuSarasas.begin(), studentuSarasas.end(), [](const auto &studentas) { return studentas.galutinisVid >= 5; });
+    auto it = std::partition(studentuSarasas.begin(), studentuSarasas.end(), [](const auto &studentas) { return studentas.galutinisVid() >= 5; });
     Container nepazangus;
     nepazangus.assign(it, studentuSarasas.end());
     studentuSarasas.resize(std::distance(studentuSarasas.begin(), it));

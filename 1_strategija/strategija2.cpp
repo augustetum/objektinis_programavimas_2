@@ -1,4 +1,4 @@
-#include "../mano_lib.h"
+#include "../studentClass.h"
 #include "strategijos_bibl.h"
 
 

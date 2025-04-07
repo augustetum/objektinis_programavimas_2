@@ -1,5 +1,5 @@
 CXX = g++ #kompiliatorius
-CXXFLAGS = -std=c++17 -O3 #kompiliatoriaus veliaveles
+CXXFLAGS = -std=c++17 #kompiliatoriaus veliaveles
 
 EXEC0 = konteineriuTyrimas
 EXEC1 = 1strategija

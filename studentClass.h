@@ -41,11 +41,10 @@ class Studentas {
             skaiciuotiGalutiniSuVid();
         }
         Studentas(string var, string pav) : vardas_{var}, pavarde_{pav}, egzaminas_(0) {
-            skaiciuotiGalutiniSuMed();
-            skaiciuotiGalutiniSuVid();
         }
         Studentas() : egzaminas_(0) { } 
         Studentas(std::istream& is);
+        ~Studentas(){}
 
         //get'eriai
         inline std::string vardas() const { return vardas_; }    

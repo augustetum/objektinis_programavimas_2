@@ -38,20 +38,27 @@ int main(){
                         try {
                             string vardas, pavarde;
                             vector<int> pazymiai;
+                            int egzaminas;
+
                             cout << "Įveskite studento vardą (įvedę visus norimus studentus ir norėdami užbaigti rašykite stop)" << endl;
                             cin >> vardas;
+
                             if (vardas == "stop"){
                                 break;
                             }
                             if (!vardoTikrinimas(vardas)) {
                                 throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
                             }
+
                             cout << "Įveskite studento pavardę" << endl;
                             cin >> pavarde;
+
                             if (!vardoTikrinimas(pavarde)) {
                                 throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
                             }
+
                             cout << "Įveskite studento namų darbų pažymius (baigę įveskite -1)" << endl;
+
                             while (true){
                                 try {
                                     int input;
@@ -70,7 +77,7 @@ int main(){
                                     continue;
                                 }
                             }
-                            int egzaminas;
+                
                             while (true) {
                                 try {
                                     cout << "Įveskite studento egzamino pažymį" << endl;
@@ -88,6 +95,7 @@ int main(){
                             }
 
                             Studentas stud(vardas, pavarde, pazymiai, egzaminas);
+                            pazymiai.clear();
                             studentuSarasas.push_back(stud);
                         } catch (const std::runtime_error &e){
                             cout << e.what() << endl;

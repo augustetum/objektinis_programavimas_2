@@ -1,32 +1,34 @@
 #include "studentClass.h"
 
 void Studentas::skaiciuotiGalutiniSuVid(){
+    vector<int> pazCopy = pazymiai_; 
     double pazymiuVidurkis;
     if(pazymiai().size() == 0){
         pazymiuVidurkis = 0.0;
     } else {
-        double sum = accumulate(pazymiai().begin(), pazymiai().end(),0);
-        pazymiuVidurkis = sum / (double)pazymiai().size();
+        double sum = accumulate(pazCopy.begin(), pazCopy.end(), 0);
+        pazymiuVidurkis = sum / static_cast<double>(pazCopy.size());
     }
-    double galutinis = 0.4 * pazymiuVidurkis + 0.6 * egzaminas();
+    double galutinis = 0.4 * pazymiuVidurkis + 0.6 * egzaminas_;
     setGalutinisV(galutinis);
 }
 
 void Studentas::skaiciuotiGalutiniSuMed(){
-    int n = pazymiai().size();
+    vector<int> pazCopy = pazymiai_; 
+    int n = pazCopy.size();
     int med;
-    if (n == 0){
+ if (n == 0) {
         med = 0;
     } else { 
-        sort(pazymiai().begin(), pazymiai().end());
-        if ( n % 2 != 0){
-            med = (double)pazymiai()[n/2];
+        sort(pazCopy.begin(), pazCopy.end());
+        if (n % 2 != 0) {
+            med = pazCopy[n/2];
         } else {
-            med = (double)(pazymiai()[(n-1)/2] + pazymiai()[n/2]) / 2.0;
+            med = (pazCopy[n/2-1] + pazCopy[n/2]) / 2.0;
         }
     }
 
-    double galutinis = 0.4 * med + 0.6 * egzaminas();
+    double galutinis = 0.4 * med + 0.6 * egzaminas_;
     setGalutinisM(galutinis);
 }
 
@@ -86,13 +88,16 @@ void generuotiPazymius(vector<Studentas> &studentuSarasas){
     srand(time(NULL));
     for (Studentas &s : studentuSarasas){
         int pazymiuKiekis = 3 + (rand() % 18);
+        vector<int> pazymiai;
         for (int x = 0; x < pazymiuKiekis; x++){
             int pazymys = 1 + (rand() % 10);
-            s.pazymiai().push_back(pazymys);
+            pazymiai.push_back(pazymys);
         }
         int egzPazymys = 1 + (rand() % 10);
-        s.skaiciuotiGalutiniSuMed();
-        s.skaiciuotiGalutiniSuVid();
+        s.setPazymiai(pazymiai);
+        s.setEgzaminas(egzPazymys);
+        s.skaiciuotiGalutiniSuMed(); 
+        s.skaiciuotiGalutiniSuVid();  
     }
 }
 
@@ -144,15 +149,16 @@ void generuotiFailus(int studentuSkaicius){
 
     //Studentu generavimas
     for(int i = 1; i <= studentuSkaicius; i++){
-        Studentas stud;
-        stud.setVardas("Vardas" + std::to_string(i));
-        stud.setPavarde("Pavarde" + std::to_string(i));
+        string vardas = "Vardas" + std::to_string(i);
+        string pavarde = "Pavarde" + std::to_string(i);
+        vector<int> pazymiai;
         for (int x = 0; x < pazymiuKiekis; x++){
             int pazymys = 1 + (rand() % 10);
-            stud.pazymiai().push_back(pazymys);
+            pazymiai.push_back(pazymys);
         }
         int egzPazymys = 1 + (rand() % 10);
-        stud.setEgzaminas(egzPazymys);
+        Studentas stud(vardas, pavarde, pazymiai, egzPazymys);
+        pazymiai.clear();
         buferis << std::left << std::setw(20) << stud.vardas() << std::setw(20) << stud.pavarde();
         for(int i : stud.pazymiai()){
             buferis << std::left << std::setw(20) << i;
@@ -224,19 +230,16 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
             getline(buferis, eilut);
 
             while(getline(buferis, eilut)){
-                Studentas stud;
                 istringstream eilute(eilut);
                 string vardas, pavarde;
+                vector<int> pazymiai;
+                int egzaminas;
+
                 eilute >> vardas >> pavarde;
 
                 if (eilute.eof()) {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-
-                stud.setVardas(vardas);
-                stud.setPavarde(pavarde);
-
-                vector<int> pazymiai;
                 
                 while(true){
                     eilute >> pazymys;
@@ -254,16 +257,14 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
                     pazymiai.push_back(pazymys);
                 }
                 if (pazymiai.empty()) {
-                    stud.setEgzaminas(pazymiai.back());
+                    egzaminas = pazymiai.back();
                     pazymiai.pop_back();
-                    stud.setPazymiai(pazymiai);
                 } else {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-                stud.skaiciuotiGalutiniSuMed();
-                stud.skaiciuotiGalutiniSuVid();
-
+                Studentas stud(vardas, pavarde, pazymiai, egzaminas);
                 studentuSarasas.push_back(stud);
+                pazymiai.clear();
             }
 }
 
@@ -344,19 +345,16 @@ void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
                 getline(buferis, eilut);
 
             while(getline(buferis, eilut)){
-                Studentas stud;
                 istringstream eilute(eilut);
                 string vardas, pavarde;
+                vector<int> pazymiai;
+                int egzaminas;
+
                 eilute >> vardas >> pavarde;
 
                 if (eilute.eof()) {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-
-                stud.setVardas(vardas);
-                stud.setPavarde(pavarde);
-
-                vector<int> pazymiai;
                 
                 while(true){
                     eilute >> pazymys;
@@ -374,16 +372,14 @@ void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
                     pazymiai.push_back(pazymys);
                 }
                 if (pazymiai.empty()) {
-                    stud.setEgzaminas(pazymiai.back());
+                    egzaminas = pazymiai.back();
                     pazymiai.pop_back();
-                    stud.setPazymiai(pazymiai);
                 } else {
                     throw "Netinkamas failo formatas: faile nėra pažymių";
                 }
-                stud.skaiciuotiGalutiniSuMed();
-                stud.skaiciuotiGalutiniSuVid();
-
+                Studentas stud(vardas, pavarde, pazymiai, egzaminas);
                 studentuSarasas.push_back(stud);
+                pazymiai.clear();
             }
                 duration += t.elapsed();
             }

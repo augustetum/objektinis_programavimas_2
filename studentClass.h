@@ -25,18 +25,18 @@ using std::ifstream;
 using std::istringstream;
 
 class Studentas {
-
     private:
         string vardas_;
         string pavarde_;
-        double egzaminas_;
+        int egzaminas_;
         double galutinisMed_;
         double galutinisVid_;
         double pazymiuVidurkis_;
         vector<int> pazymiai_;
     
     public:
-        Studentas(string var, string pav, vector<int> paz, double egz) :  vardas_{var}, pavarde_{pav}, pazymiai_{paz}, egzaminas_{egz} {
+        Studentas(string var, string pav, vector<int> paz, int egz) :  
+        vardas_{var}, pavarde_{pav}, pazymiai_{paz}, egzaminas_{egz} {
             skaiciuotiGalutiniSuMed();
             skaiciuotiGalutiniSuVid();
         }
@@ -52,7 +52,7 @@ class Studentas {
         inline std::string pavarde() const { return pavarde_; } 
         inline double galutinisMed() const { return galutinisMed_;}
         inline double galutinisVid() const { return galutinisVid_;}
-        inline vector<int> pazymiai() const { return pazymiai_;}
+        inline const vector<int>& pazymiai() const { return pazymiai_; }
         inline int egzaminas() const { return egzaminas_; }
 
         //set'eriai

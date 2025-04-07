@@ -256,7 +256,7 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
                     }
                     pazymiai.push_back(pazymys);
                 }
-                if (pazymiai.empty()) {
+                if (!pazymiai.empty()) {
                     egzaminas = pazymiai.back();
                     pazymiai.pop_back();
                 } else {

@@ -98,8 +98,18 @@ class Studentas {
         }
 
         //move assignment operatorius
-        Studentas& operator =(const Studentas&& s){
+        Studentas& operator =(Studentas&& s){
+            if (this == &s) return *this;
 
+            vardas_ = std::move(s.vardas_);
+            pavarde_ = std::move(s.pavarde_);
+            egzaminas_ = s.egzaminas_;
+            galutinisMed_ = s.galutinisMed_;
+            galutinisVid_ = s.galutinisVid_;
+            pazymiuVidurkis_ = s.pazymiuVidurkis_;
+            pazymiai_ = std::move(s.pazymiai_);
+            
+            return *this;
         }
 
 };

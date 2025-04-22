@@ -46,7 +46,7 @@ class Studentas {
         Studentas(std::istream& is);
 
         //copy konstruktorius
-        Studentas::Studentas(const Studentas &s)
+        Studentas(const Studentas &s)
         : vardas_{s.vardas_}, pavarde_{s.pavarde_}, egzaminas_{s.egzaminas_}, 
         galutinisMed_{s.galutinisMed_}, galutinisVid_{s.galutinisVid_}, pazymiuVidurkis_{s.pazymiuVidurkis_},
         pazymiai_{s.pazymiai_}{}
@@ -75,6 +75,21 @@ class Studentas {
         //member funkcijos
         void skaiciuotiGalutiniSuVid();
         void skaiciuotiGalutiniSuMed();
+
+        //copy assignment operatorius 
+        Studentas& operator=(const Studentas &s){
+            if (this == &s) return *this;
+
+            vardas_ = s.vardas_;
+            pavarde_ = s.pavarde_;
+            egzaminas_ = s.egzaminas_;
+            galutinisMed_ = s.galutinisMed_;
+            galutinisVid_ = s.galutinisVid_;
+            pazymiuVidurkis_ = s.pazymiuVidurkis_;
+            pazymiai_ = s.pazymiai_;
+            
+            return *this;
+        }
 
 };
 

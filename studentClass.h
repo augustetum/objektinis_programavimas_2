@@ -112,6 +112,18 @@ class Studentas {
             return *this;
         }
 
+        //output operator
+        friend std::ostream& operator<<(std::ostream& out, const Studentas &s) {
+            out << "vardas: " << s.vardas_ << ", pavardė: " << s.pavarde_ << ", egzamino pažymys: " << s.egzaminas_ << ", galutinisMed: " << s.galutinisMed_ << ", galutinisVid: " << s.galutinisVid_ << ", pažymių vidurkis: " << s.pazymiuVidurkis_ << "\n";
+            out << "pažymiai: ";
+            for (int n : s.pazymiai_){
+                out << ", ";
+                out << n;
+            }
+            out << "\n";
+        return out;
+    }
+
 };
 
 bool compare(const Studentas&, const Studentas&);

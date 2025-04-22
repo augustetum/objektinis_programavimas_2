@@ -42,7 +42,7 @@ class Studentas {
         }
         Studentas(string var, string pav) : vardas_{var}, pavarde_{pav}, egzaminas_(0) {
         }
-        Studentas() : egzaminas_(0) { } 
+        Studentas() : egzaminas_(0) {} 
         Studentas(std::istream& is);
 
         //copy konstruktorius
@@ -50,6 +50,12 @@ class Studentas {
         : vardas_{s.vardas_}, pavarde_{s.pavarde_}, egzaminas_{s.egzaminas_}, 
         galutinisMed_{s.galutinisMed_}, galutinisVid_{s.galutinisVid_}, pazymiuVidurkis_{s.pazymiuVidurkis_},
         pazymiai_{s.pazymiai_}{}
+
+        //move konstruktorius
+        Studentas(Studentas&& s)
+        : vardas_{std::move(s.vardas_)}, pavarde_{std::move(s.pavarde_)}, egzaminas_{s.egzaminas_}, 
+        galutinisMed_{s.galutinisMed_}, galutinisVid_{s.galutinisVid_}, pazymiuVidurkis_{s.pazymiuVidurkis_},
+        pazymiai_{std::move(s.pazymiai_)}{}
 
         //destruktorius
         ~Studentas(){
@@ -77,7 +83,7 @@ class Studentas {
         void skaiciuotiGalutiniSuMed();
 
         //copy assignment operatorius 
-        Studentas& operator=(const Studentas &s){
+        Studentas& operator=(const Studentas& s){
             if (this == &s) return *this;
 
             vardas_ = s.vardas_;
@@ -89,6 +95,11 @@ class Studentas {
             pazymiai_ = s.pazymiai_;
             
             return *this;
+        }
+
+        //move assignment operatorius
+        Studentas& operator =(const Studentas&& s){
+
         }
 
 };

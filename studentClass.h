@@ -44,7 +44,17 @@ class Studentas {
         }
         Studentas() : egzaminas_(0) { } 
         Studentas(std::istream& is);
-        ~Studentas(){}
+
+        //copy konstruktorius
+        Studentas::Studentas(const Studentas &s)
+        : vardas_{s.vardas_}, pavarde_{s.pavarde_}, egzaminas_{s.egzaminas_}, 
+        galutinisMed_{s.galutinisMed_}, galutinisVid_{s.galutinisVid_}, pazymiuVidurkis_{s.pazymiuVidurkis_},
+        pazymiai_{s.pazymiai_}{}
+
+        //destruktorius
+        ~Studentas(){
+            pazymiai_.clear();
+        };
 
         //get'eriai
         inline std::string vardas() const { return vardas_; }    

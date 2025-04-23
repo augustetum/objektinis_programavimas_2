@@ -60,6 +60,7 @@ class Studentas {
 
         //destruktorius
         ~Studentas(){
+            cout << "Destruktorius iškviestas" << endl;
             pazymiai_.clear();
         };
 

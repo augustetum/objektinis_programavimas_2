@@ -419,3 +419,56 @@ void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2){
     cout << std::left << std::setw(60) << "Pažangių mokinių failą išvesti užtruko: " << std::right << std::setw(10) << std::to_string(k.elapsed()) + "s" << endl;
 
 }
+
+std::istream& operator>>(std::istream& cin, Studentas& s){
+            string vardas, pavarde;
+            vector<int> pazymiai;
+            int egzaminas, pazymys;
+
+
+            cin >> vardas >> pavarde;
+            if (!vardoTikrinimas(vardas)) {
+                throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
+            }
+            if (!vardoTikrinimas(pavarde)) {
+                throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
+            }
+
+            if (cin.eof()) {
+                throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
+            }
+                
+            while (cin >> pazymys){
+                if (cin.fail()){
+                    if (cin.eof()){
+                        break;
+                    }
+                    cin.clear();
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės");
+                }
+                    if (pazymys < 1 || pazymys > 10){
+                        throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10");
+                    }
+                    pazymiai.push_back(pazymys);
+                }
+                if (!pazymiai.empty()) {
+                    egzaminas = pazymiai.back();
+                    pazymiai.pop_back();
+                } else {
+                    throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
+                }
+                s = Studentas(vardas, pavarde, pazymiai, egzaminas);
+            return cin;
+}
+
+std::ostream& operator<<(std::ostream& out, const Studentas &s) {
+            out << "vardas: " << s.vardas_ << ", pavardė: " << s.pavarde_ << ", egzamino pažymys: " << s.egzaminas_ << ", galutinisMed: " << s.galutinisMed_ << ", galutinisVid: " << s.galutinisVid_ << ", pažymių vidurkis: " << s.pazymiuVidurkis_ << "\n";
+            out << "pažymiai: ";
+            for (int n : s.pazymiai_){
+                out << ", ";
+                out << n;
+            }
+            out << "\n";
+            return out;
+        }

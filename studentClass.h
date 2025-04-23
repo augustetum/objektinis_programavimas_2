@@ -114,52 +114,10 @@ class Studentas {
         }
 
         //output operator
-        friend std::ostream& operator<<(std::ostream& out, const Studentas &s) {
-            out << "vardas: " << s.vardas_ << ", pavardė: " << s.pavarde_ << ", egzamino pažymys: " << s.egzaminas_ << ", galutinisMed: " << s.galutinisMed_ << ", galutinisVid: " << s.galutinisVid_ << ", pažymių vidurkis: " << s.pazymiuVidurkis_ << "\n";
-            out << "pažymiai: ";
-            for (int n : s.pazymiai_){
-                out << ", ";
-                out << n;
-            }
-            out << "\n";
-            return out;
-        }
+        friend std::ostream& operator<<(std::ostream& out, const Studentas &s);
 
         //input operator
-        friend std::istream& operator>>(std::istream& cin, Studentas& s){
-            string vardas, pavarde;
-            vector<int> pazymiai;
-            int egzaminas, pazymys;
-
-            cin >> vardas >> pavarde;
-
-            if (cin.eof()) {
-                throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
-            }
-                
-            while (cin >> pazymys){
-                if (cin.fail()){
-                    if (cin.eof()){
-                        break;
-                    }
-                    cin.clear();
-                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės");
-                }
-                    if (pazymys < 1 || pazymys > 10){
-                        throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10");
-                    }
-                    pazymiai.push_back(pazymys);
-                }
-                if (!pazymiai.empty()) {
-                    egzaminas = pazymiai.back();
-                    pazymiai.pop_back();
-                } else {
-                    throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
-                }
-                s = Studentas(vardas, pavarde, pazymiai, egzaminas);
-            return cin;
-        }
+        friend std::istream& operator>>(std::istream& cin, Studentas& s);
 };
 
 bool compare(const Studentas&, const Studentas&);

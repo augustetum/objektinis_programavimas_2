@@ -63,7 +63,7 @@ void rodytiVisusRezultatus(vector<Studentas> studentuSarasas){
     std::ostringstream buferis;
     buferis << std::left << std::setw(20) << "Pavardė" << std::setw(20) << "Vardas" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Vid.)" << std::setw(20) << std::fixed << std::setprecision(2) << "Galutinis (Med.)" << endl;
     for (Studentas s: studentuSarasas){
-        buferis << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
+        buferis << s;
     }
 
     int choice;
@@ -425,14 +425,7 @@ std::istream& operator>>(std::istream& cin, Studentas& s){
             vector<int> pazymiai;
             int egzaminas, pazymys;
 
-
             cin >> vardas >> pavarde;
-            if (!vardoTikrinimas(vardas)) {
-                throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
-            }
-            if (!vardoTikrinimas(pavarde)) {
-                throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
-            }
 
             if (cin.eof()) {
                 throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
@@ -463,12 +456,6 @@ std::istream& operator>>(std::istream& cin, Studentas& s){
 }
 
 std::ostream& operator<<(std::ostream& out, const Studentas &s) {
-            out << "vardas: " << s.vardas_ << ", pavardė: " << s.pavarde_ << ", egzamino pažymys: " << s.egzaminas_ << ", galutinisMed: " << s.galutinisMed_ << ", galutinisVid: " << s.galutinisVid_ << ", pažymių vidurkis: " << s.pazymiuVidurkis_ << "\n";
-            out << "pažymiai: ";
-            for (int n : s.pazymiai_){
-                out << ", ";
-                out << n;
-            }
-            out << "\n";
+            out << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
             return out;
         }

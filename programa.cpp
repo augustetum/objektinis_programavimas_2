@@ -15,7 +15,8 @@ int main(){
             cout << "5 | Testuoti failų nuskaitymą" << endl;
             cout << "6 | Generuoti studentų failą" << endl;
             cout << "7 | Atlikti laiko matavimo tyrimą" << endl;
-            cout << "8 | Baigti darbą" << endl;
+            cout << "8 | Testuoti klasės metodus ir konstruktorius" << endl;
+            cout << "9 | Baigti darbą" << endl;
             cin >> menuChoice;
 
             if(cin.fail()) {
@@ -24,7 +25,7 @@ int main(){
                 throw std::runtime_error("Neteisingas meniu pasirinkimas!");
             }
 
-            if (menuChoice != 1 && menuChoice != 2 && menuChoice != 3 && menuChoice != 4 && menuChoice != 5 && menuChoice != 6 && menuChoice != 7 && menuChoice != 8){
+            if (menuChoice < 1 || menuChoice > 9 || menuChoice != static_cast<int>(menuChoice)){
                 throw std::runtime_error("Neteisingas meniu pasirinkimas!");
             }
 
@@ -256,6 +257,11 @@ int main(){
                 }
 
                 case 8: {
+                    cout << "Pasirinkote testuoti klasę: ";
+                    break;
+                }
+
+                case 9: {
                     cout << "Programa baigta" << endl;
                     veikimas = false;
                 break;

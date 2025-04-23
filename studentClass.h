@@ -134,7 +134,7 @@ class Studentas {
             cin >> vardas >> pavarde;
 
             if (cin.eof()) {
-                throw "Netinkamas failo formatas: faile nėra pažymių";
+                throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
             }
                 
             while (cin >> pazymys){
@@ -144,10 +144,10 @@ class Studentas {
                     }
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    throw "Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės";
+                    throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės");
                 }
                     if (pazymys < 1 || pazymys > 10){
-                        throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
+                        throw std::runtime_error("Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10");
                     }
                     pazymiai.push_back(pazymys);
                 }
@@ -155,7 +155,7 @@ class Studentas {
                     egzaminas = pazymiai.back();
                     pazymiai.pop_back();
                 } else {
-                    throw "Netinkamas failo formatas: faile nėra pažymių";
+                    throw std::runtime_error("Netinkamas failo formatas: faile nėra pažymių");
                 }
                 s = Studentas(vardas, pavarde, pazymiai, egzaminas);
             return cin;

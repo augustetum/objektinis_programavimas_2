@@ -231,40 +231,9 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
 
             while(getline(buferis, eilut)){
                 istringstream eilute(eilut);
-                string vardas, pavarde;
-                vector<int> pazymiai;
-                int egzaminas;
-
-                eilute >> vardas >> pavarde;
-
-                if (eilute.eof()) {
-                    throw "Netinkamas failo formatas: faile nėra pažymių";
-                }
-                
-                while(true){
-                    eilute >> pazymys;
-                    if (eilute.fail()){
-                        if (eilute.eof()){
-                            break;
-                        }
-                        eilute.clear();
-                        eilute.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                        throw "Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės";
-                    }
-                    if (pazymys < 1 || pazymys > 10){
-                        throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
-                    }
-                    pazymiai.push_back(pazymys);
-                }
-                if (!pazymiai.empty()) {
-                    egzaminas = pazymiai.back();
-                    pazymiai.pop_back();
-                } else {
-                    throw "Netinkamas failo formatas: faile nėra pažymių";
-                }
-                Studentas stud(vardas, pavarde, pazymiai, egzaminas);
-                studentuSarasas.push_back(stud);
-                pazymiai.clear();
+                Studentas s;
+                eilute >> s;
+                studentuSarasas.push_back(s);
             }
 }
 

@@ -33,70 +33,20 @@ int main(){
                 case 1: {
                     cout << "Pasirinkote studentų įvestį ranka" << endl;
                     cout << "---------------------------------" << endl;
-                    
+                    cout << "Įveskite studentus šiuo formatu: vardas pavardė pažymiai egzamino pažymys. Baigę rašyti studentus įrašykite stop." << endl;
                     while (true){
                         try {
-                            string vardas, pavarde;
-                            vector<int> pazymiai;
-                            int egzaminas;
-
-                            cout << "Įveskite studento vardą (įvedę visus norimus studentus ir norėdami užbaigti rašykite stop)" << endl;
-                            cin >> vardas;
-
-                            if (vardas == "stop"){
+                          string eilut;
+                            std::getline(std::cin >> std::ws, eilut);
+                            if (eilut == "stop") {
                                 break;
                             }
-                            if (!vardoTikrinimas(vardas)) {
-                                throw std::runtime_error("Neteisingas vardas! Vardas turi būti sudarytas tik iš raidžių.");
-                            }
+                            istringstream eilute(eilut);
+                            Studentas s;
+                            eilute >> s;
+                            studentuSarasas.push_back(s);
 
-                            cout << "Įveskite studento pavardę" << endl;
-                            cin >> pavarde;
 
-                            if (!vardoTikrinimas(pavarde)) {
-                                throw std::runtime_error("Neteisinga pavardė! Pavardė turi būti sudaryta tik iš raidžių.");
-                            }
-
-                            cout << "Įveskite studento namų darbų pažymius (baigę įveskite -1)" << endl;
-
-                            while (true){
-                                try {
-                                    int input;
-                                    cin >> input;
-                                    if (input == -1){
-                                        break;
-                                    } 
-                                    if(cin.fail() || input < 1 || input > 10) {
-                                        cin.clear();
-                                        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                                        throw std::runtime_error("Neteisingas pažymys! Pažymys susidaro tik iš skaičių, turi būti tarp 1 ir 10");
-                                    }
-                                    pazymiai.push_back(input);
-                                } catch (const std::runtime_error &e){
-                                    cout << e.what() << endl;
-                                    continue;
-                                }
-                            }
-                
-                            while (true) {
-                                try {
-                                    cout << "Įveskite studento egzamino pažymį" << endl;
-                                    cin >> egzaminas;
-                                    if(cin.fail() || egzaminas < 1 || egzaminas > 10) {
-                                        cin.clear();
-                                        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                                        throw std::runtime_error("Neteisingas egzamino pažymys! Pažymys susidaro tik iš skaičių, turi būti sveikas skaičius tarp 1 ir 10");
-                                    }
-                                    break;
-                                } catch (const std::runtime_error &e){
-                                    cout << e.what() << endl;
-                                    continue;
-                                }
-                            }
-
-                            Studentas stud(vardas, pavarde, pazymiai, egzaminas);
-                            pazymiai.clear();
-                            studentuSarasas.push_back(stud);
                         } catch (const std::runtime_error &e){
                             cout << e.what() << endl;
                             continue;

@@ -40,6 +40,7 @@ class Studentas {
             skaiciuotiGalutiniSuMed();
             skaiciuotiGalutiniSuVid();
         }
+
         Studentas(string var, string pav) : vardas_{var}, pavarde_{pav}, egzaminas_(0) {
         }
         Studentas() : egzaminas_(0) {} 
@@ -121,9 +122,44 @@ class Studentas {
                 out << n;
             }
             out << "\n";
-        return out;
-    }
+            return out;
+        }
 
+        //input operator
+        friend std::istream& operator>>(std::istream& cin, Studentas& s){
+            string vardas, pavarde;
+            vector<int> pazymiai;
+            int egzaminas, pazymys;
+
+            cin >> vardas >> pavarde;
+
+            if (cin.eof()) {
+                throw "Netinkamas failo formatas: faile nėra pažymių";
+            }
+                
+            while (cin >> pazymys){
+                if (cin.fail()){
+                    if (cin.eof()){
+                        break;
+                    }
+                    cin.clear();
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw "Netinkamas failo formatas: pažymiai nėra skaitinės reikšmės";
+                }
+                    if (pazymys < 1 || pazymys > 10){
+                        throw "Netinkamas failo formatas: pažymiai nėra sveiki skaičiai ribose nuo 1 iki 10";
+                    }
+                    pazymiai.push_back(pazymys);
+                }
+                if (!pazymiai.empty()) {
+                    egzaminas = pazymiai.back();
+                    pazymiai.pop_back();
+                } else {
+                    throw "Netinkamas failo formatas: faile nėra pažymių";
+                }
+                s = Studentas(vardas, pavarde, pazymiai, egzaminas);
+            return cin;
+        }
 };
 
 bool compare(const Studentas&, const Studentas&);

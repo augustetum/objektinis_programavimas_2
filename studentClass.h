@@ -14,6 +14,7 @@
 #include <limits>
 #include <ios>
 #include "timer.h"
+#include "humanClass.h"
 
 using std::cout;
 using std::cin;
@@ -24,7 +25,7 @@ using std::accumulate;
 using std::ifstream;
 using std::istringstream;
 
-class Studentas {
+class Studentas : public Zmogus {
     private:
         string vardas_;
         string pavarde_;

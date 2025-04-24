@@ -9,5 +9,7 @@ class Zmogus {
         //get'eriai
         inline std::string vardas() const { return vardas_; }    
         inline std::string pavarde() const { return pavarde_; } 
-
+        //set'eriai
+        inline void setVardas(string var) { vardas_ = var; }
+        inline void setPavarde(string pav) { pavarde_ = pav; }
 };

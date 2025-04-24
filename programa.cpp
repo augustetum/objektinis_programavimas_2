@@ -257,15 +257,15 @@ int main(){
                 }
 
                 case 8: {
-                    cout << "Pasirinkote testuoti klasę: ";
+                    cout << "Pasirinkote testuoti klasę: " << endl;
                     cout << "—— Default konstruktorius ——" << endl;
                     Studentas s1;
                     cout << "Egzaminas: " << s1.egzaminas() << endl;
-    
+                    cout << endl;
                     cout << "—— Vardo, pavardės konstruktorius ——" << endl;
                     Studentas s2("Jonas", "Jonaitis");
                     cout << "Vardas: " << s2.vardas() << ", pavardė: " << s2.pavarde() << endl;
-    
+                    cout << endl;
                     cout << "—— Pilnas konstruktorius ——" << endl;
                     vector<int> pazymiai = {8, 9, 10, 7, 8};
                     Studentas s3("Petras", "Petraitis", pazymiai, 9);
@@ -274,47 +274,49 @@ int main(){
                     << ", egzaminas: " << s3.egzaminas()
                     << ", galutinis vid: " << s3.galutinisVid()
                     << ", galutinis med: " << s3.galutinisMed() << endl;
-    
+                    cout << endl;
                     cout << "—— Copy konstruktorius ——" << endl;
                     Studentas s4(s3);
                     cout << "s3 kopija - vardas: " << s4.vardas() 
                     << ", pavardė: " << s4.pavarde() 
                     << ", egzaminas: " << s4.egzaminas() 
                     << ", galutinis vid: " << s4.galutinisVid() << endl;
-    
+                    cout << endl;
                     s4.setVardas("Antanas");
                     cout << "Po kopijos pakeitimo - s3.vardas: " << s3.vardas() 
                     << ", s4.vardas: " << s4.vardas() << endl;
-    
+                    cout << endl;
                     cout << "—— Move konstruktorius ——" << endl;
                     Studentas s5(std::move(s4));
                     cout << "Movint’as iš s4 - vardas: " << s5.vardas() 
                     << ", pavardė: " << s5.pavarde() 
                     << ", egzaminas: " << s5.egzaminas() << endl;
-    
+                    cout << endl;
                     cout << "—— Copy assignment operatorius ——" << endl;
                     Studentas s6;
                     s6 = s3;
                     cout << "s6 po s3 kopijavimo - vardas: " << s6.vardas() 
                     << ", pavardė: " << s6.pavarde() << endl;
-    
+                    cout << endl;
 
                     cout << "—— Move assignment operatorius ——"  << endl;
                     Studentas s7;
                     s7 = std::move(s6);
                     cout << "s7 po movinimo iš s6 - vardas: " << s7.vardas() 
                     << ", pavardė: " << s7.pavarde() << endl;
-    
+                    cout << endl;
                     cout << "—— Output’o operatorius ——" << endl;
                     cout << "s3 naudojant operatorių <<: " << s3 << endl;
-    
+                    cout << endl;
                     cout << "—— Input’o operatorius ——" << endl;
                     string testInput = "Tomas Tomauskas 5 8 9 10 7 9";
                     istringstream iss(testInput);
                     Studentas s8;
                     iss >> s8;
                     cout << "s8 po input: " << s8 << endl;
-
+                    cout << endl;
+                    cout << "—— Destruktorius ——" << endl;
+                    testuotiDestruktoriu();
                     break;
                 }
 

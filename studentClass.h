@@ -60,7 +60,8 @@ class Studentas {
 
         //destruktorius
         ~Studentas(){
-            cout << "Destruktorius iškviestas" << endl;
+            vardas_.clear();
+            pavarde_.clear();
             pazymiai_.clear();
         };
 
@@ -146,5 +147,6 @@ void skirstytiStudentus(vector<Studentas> &studentuSarasas);
 bool vardoTikrinimas(const string &vard);
 void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2);
 void rikiavimasIrIrasymasVargsiukamsIrKietekams(vector<Studentas> vargsiukai, vector<Studentas> kietekai);
+void testuotiDestruktoriu();
 
 #endif

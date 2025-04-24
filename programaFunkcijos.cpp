@@ -459,3 +459,9 @@ std::ostream& operator<<(std::ostream& out, const Studentas &s) {
             out << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
             return out;
         }
+
+void testuotiDestruktoriu(){
+    Studentas s("Petras", "Jonaitis");
+    s.~Studentas();
+    if(s.vardas()!= "Petras" && s.pavarde() != "Jonaitis") {cout << "Destruktorius suveikė" << endl;}
+}

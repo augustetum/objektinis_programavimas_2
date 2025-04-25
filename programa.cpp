@@ -317,6 +317,9 @@ int main(){
                     cout << endl;
                     cout << "—— Destruktorius ——" << endl;
                     testuotiDestruktoriu();
+                    cout << "—— Žmogaus konstuktorius ——" << endl;
+                    Zmogus z("Pranas", "Pranaitis");
+                    cout << z.vardas() << " " << z.pavarde() << endl;
                     break;
                 }
 

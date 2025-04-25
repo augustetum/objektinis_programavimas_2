@@ -58,7 +58,7 @@ class Studentas : public Zmogus {
         pazymiai_{std::move(s.pazymiai_)}{}
 
         //destruktorius
-        ~Studentas(){
+        ~Studentas() override{
             pazymiai_.clear();
         };
 

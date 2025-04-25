@@ -15,5 +15,8 @@ class Zmogus {
         inline void setVardas(string var) { vardas_ = var; }
         inline void setPavarde(string pav) { pavarde_ = pav; }
 
-        virtual ~Zmogus() {}
+        virtual ~Zmogus() {
+            vardas_ = "";
+            pavarde_ = "";
+        }
 };

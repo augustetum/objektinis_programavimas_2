@@ -1,0 +1,171 @@
+\chapter{README}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+\doxysection*{v1.\+2}
+
+v1.\+2 šakoje implementuoti ir testuoti "{}\+Rule of five"{} metodai bei perdengti įvesties ir išvesties operatoriai. Jų veikimas pritaikytas anksčiau naudotose programos dalyse, tokiose kaip\+: nuskaitymas iš failo, studentų įvedimas ranka, studentų rezultatų išvedimas. 
+
+Žemiau pateikiamos kodo iškarpos, rodančios "{}\+Rule of five"{} bei operatorių perdengimą. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//copy\ konstruktorius}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&s)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ :\ vardas\_\{s.vardas\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pavarde\_\{s.pavarde\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ egzaminas\_\{s.egzaminas\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ galutinisMed\_\{s.galutinisMed\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ galutinisVid\_\{s.galutinisVid\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiuVidurkis\_\{s.pazymiuVidurkis\_\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiai\_\{s.pazymiai\_\}\{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//move\ konstruktorius}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}(\mbox{\hyperlink{class_studentas}{Studentas}}\&\&\ s)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ :\ vardas\_\{std::move(s.vardas\_)\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pavarde\_\{std::move(s.pavarde\_)\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ egzaminas\_\{s.egzaminas\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ galutinisMed\_\{s.galutinisMed\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ galutinisVid\_\{s.galutinisVid\_\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiuVidurkis\_\{s.pazymiuVidurkis\_\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiai\_\{std::move(s.pazymiai\_)\}\{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//copy\ assignment\ operatorius\ }}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&s)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ s.vardas\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ s.pavarde\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ egzaminas\_\ =\ s.egzaminas\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisMed\_\ =\ s.galutinisMed\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisVid\_\ =\ s.galutinisVid\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pazymiuVidurkis\_\ =\ s.pazymiuVidurkis\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pazymiai\_\ =\ s.pazymiai\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//move\ assignment\ operatorius}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ operator\ =(\mbox{\hyperlink{class_studentas}{Studentas}}\&\&\ s)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&s)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ std::move(s.vardas\_);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ std::move(s.pavarde\_);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ egzaminas\_\ =\ s.egzaminas\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisMed\_\ =\ s.galutinisMed\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisVid\_\ =\ s.galutinisVid\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pazymiuVidurkis\_\ =\ s.pazymiuVidurkis\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pazymiai\_\ =\ std::move(s.pazymiai\_);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//destruktorius}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{\string~Studentas}}()\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_.clear();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_.clear();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pazymiai\_.clear();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//perdengtas\ įvesties\ operatorius\ (panaikintas\ vardo\ ir\ pavardės\ tikrinimas\ dėl\ failuose\ esančio\ formatavimo,\ kur\ vardas\ ir\ pavardė\ GALI\ turėti\ skaičius)}}
+\DoxyCodeLine{std::istream\&\ operator>>(std::istream\&\ cin,\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas,\ pavarde;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vector<int>\ pazymiai;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egzaminas,\ pazymys;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ vardas\ >>\ pavarde;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.eof())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Netinkamas\ failo\ formatas:\ faile\ nėra\ pažymių"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cin\ >>\ pazymys)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.fail())\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.eof())\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Netinkamas\ failo\ formatas:\ pažymiai\ nėra\ skaitinės\ reikšmės"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pazymys\ <\ 1\ ||\ pazymys\ >\ 10)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Netinkamas\ failo\ formatas:\ pažymiai\ nėra\ sveiki\ skaičiai\ ribose\ nuo\ 1\ iki\ 10"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pazymiai.push\_back(pazymys);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pazymiai.empty())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ egzaminas\ =\ pazymiai.back();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pazymiai.pop\_back();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Netinkamas\ failo\ formatas:\ faile\ nėra\ pažymių"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ \mbox{\hyperlink{class_studentas}{Studentas}}(vardas,\ pavarde,\ pazymiai,\ egzaminas);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cin;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//perdengtas\ išvesties\ operatorius}}
+\DoxyCodeLine{std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&s)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(20)\ <<\ s.pavarde()\ <<\ std::setw(20)\ <<\ s.vardas()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.galutinisVid()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.galutinisMed()\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+ v1.\+2 versijoje sukurta klasės testavimo programa leidžia testuoti visas minėtas funkcijas, gaunami rezultatai\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{——\ Default\ konstruktorius\ ——}
+\DoxyCodeLine{Egzaminas:\ 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Vardo,\ pavardės\ konstruktorius\ ——}
+\DoxyCodeLine{Vardas:\ Jonas,\ pavardė:\ Jonaitis}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Pilnas\ konstruktorius\ ——}
+\DoxyCodeLine{Vardas:\ Petras,\ pavardė:\ Petraitis,\ egzaminas:\ 9,\ galutinis\ vid:\ 8.76,\ galutinis\ med:\ 8.6}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Copy\ konstruktorius\ ——}
+\DoxyCodeLine{s3\ kopija\ -\/\ vardas:\ Petras,\ pavardė:\ Petraitis,\ egzaminas:\ 9,\ galutinis\ vid:\ 8.76}
+\DoxyCodeLine{}
+\DoxyCodeLine{Po\ kopijos\ pakeitimo\ -\/\ s3.vardas:\ Petras,\ s4.vardas:\ Antanas}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Move\ konstruktorius\ ——}
+\DoxyCodeLine{Movint’as\ iš\ s4\ -\/\ vardas:\ Antanas,\ pavardė:\ Petraitis,\ egzaminas:\ 9}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Copy\ assignment\ operatorius\ ——}
+\DoxyCodeLine{s6\ po\ s3\ kopijavimo\ -\/\ vardas:\ Petras,\ pavardė:\ Petraitis}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Move\ assignment\ operatorius\ ——}
+\DoxyCodeLine{s7\ po\ movinimo\ iš\ s6\ -\/\ vardas:\ Petras,\ pavardė:\ Petraitis}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Output’o\ operatorius\ ——}
+\DoxyCodeLine{s3\ naudojant\ operatorių\ <<:\ Petraitis\ \ \ \ \ \ \ \ \ \ \ Petras\ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.76\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.60\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Input’o\ operatorius\ ——}
+\DoxyCodeLine{s8\ po\ input:\ Tomauskas\ \ \ \ \ \ \ \ \ \ \ Tomas\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.52\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.60\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{——\ Destruktorius\ ——}
+\DoxyCodeLine{Destruktorius\ suveikė}
+
+\end{DoxyCode}
+ 
+
+Ankstesnė v1.\+1 šaka skirta palyginti "{}class"{} ir "{}struct"{} naudojimą talpinant studento duomenis. Tyrimas ir jo rezultatai pateikiami žemiau, v1.\+1 implementuota "{}class"{} lyginama su v1.\+0 versijoje naudotu "{}struct"{}.
+
+Tyrimas vykdytas su 3 strategija (žr. v1.\+0) bei vektoriaus konteineriu, vykdytos 3 iteracijos.
+
+\doxysubsubsection*{"{}\+Class"{} ir "{}struct"{} \texorpdfstring{$\vert$}{|} Tyrimo rezultatai }
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Programos veikimo laikas su CLASS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Programos veikimo laikas su STRUCT   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentų kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Optimizavimo vėliava   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ .exe failo dydis su CLASS (KB)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ .exe failo dydis su STRUCT    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Programos veikimo laikas su CLASS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Programos veikimo laikas su STRUCT   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentų kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Optimizavimo vėliava   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ .exe failo dydis su CLASS (KB)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ .exe failo dydis su STRUCT    }\\\cline{1-6}
+\endhead
+0.\+434467s   &0.\+418547s   &100 000   &-\/O3   &332   &329    \\\cline{1-6}
+0.\+453639s   &0.\+428051s   &100 000   &-\/O2   &319   &315    \\\cline{1-6}
+0.\+453065s   &0.\+427737s   &100 000   &-\/O1   &317   &331    \\\cline{1-6}
+1.\+54309s   &1.\+32805s   &100 000   &-\/   &861   &841   \\\cline{1-6}
+\end{longtabu}
+\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} 1.\+95142s \texorpdfstring{$\vert$}{|} 1.\+70978s \texorpdfstring{$\vert$}{|} 1 000 000 \texorpdfstring{$\vert$}{|} -\/O3 \texorpdfstring{$\vert$}{|} 332 \texorpdfstring{$\vert$}{|} 329 \texorpdfstring{$\vert$}{|} 1.\+9155s \texorpdfstring{$\vert$}{|} 1.\+73843s \texorpdfstring{$\vert$}{|} 1 000 000 \texorpdfstring{$\vert$}{|} -\/O2 \texorpdfstring{$\vert$}{|} 319 \texorpdfstring{$\vert$}{|} 315 \texorpdfstring{$\vert$}{|} 1.\+93125s \texorpdfstring{$\vert$}{|} 1.\+7828s \texorpdfstring{$\vert$}{|} 1 000 000 \texorpdfstring{$\vert$}{|} -\/O1 \texorpdfstring{$\vert$}{|} 317 \texorpdfstring{$\vert$}{|} 331 \texorpdfstring{$\vert$}{|} 7.\+94422s \texorpdfstring{$\vert$}{|} 6.\+41446s \texorpdfstring{$\vert$}{|} 1 000 000 \texorpdfstring{$\vert$}{|} -\/ \texorpdfstring{$\vert$}{|} 861 \texorpdfstring{$\vert$}{|} 841 

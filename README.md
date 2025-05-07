@@ -1,6 +1,79 @@
-<h1>v1.2</h2>
+<h1>v2.0</h2>
 
-<p>v1.2 šakoje implementuoti ir testuoti "Rule of five" metodai bei perdengti įvesties ir išvesties operatoriai. Jų veikimas pritaikytas anksčiau naudotose programos dalyse, tokiose kaip: nuskaitymas iš failo, studentų įvedimas ranka, studentų rezultatų išvedimas. </p>
+<p>v2.0 sukurta dokumentacija ir atlikti unit testai</p>
+
+<p>v1.5 šakoje pridėta nauja klasė - Žmogus. Studento klasė dabar paveldi Žmogaus klasę, todėl atitinkamai buvo pakeisti ir konstruktoriai / destruktoriai. Nauja Žmogaus bei Studento klasė ištestuota su v1.2 versijoje sukurtu testavimo metodu. Rezultatai parodė, jog nauja klasė veikia su anksčiau implementuotais metodais, t.y. testo rezultatai sutampa su žemiau 1.2 versijoje aprašytais to pačio testo rezultatais.</p>
+
+<p>Žemiau pridedamas testo kodas, leidžiantis geriau suprasti testo rezultatus: </p>
+
+```cpp
+ cout << "Pasirinkote testuoti klasę: " << endl;
+                    cout << "—— Default konstruktorius ——" << endl;
+                    Studentas s1;
+                    cout << "Egzaminas: " << s1.egzaminas() << endl;
+                    cout << endl;
+                    cout << "—— Vardo, pavardės konstruktorius ——" << endl;
+                    Studentas s2("Jonas", "Jonaitis");
+                    cout << "Vardas: " << s2.vardas() << ", pavardė: " << s2.pavarde() << endl;
+                    cout << endl;
+                    cout << "—— Pilnas konstruktorius ——" << endl;
+                    vector<int> pazymiai = {8, 9, 10, 7, 8};
+                    Studentas s3("Petras", "Petraitis", pazymiai, 9);
+                    cout << "Vardas: " << s3.vardas() 
+                    << ", pavardė: " << s3.pavarde() 
+                    << ", egzaminas: " << s3.egzaminas()
+                    << ", galutinis vid: " << s3.galutinisVid()
+                    << ", galutinis med: " << s3.galutinisMed() << endl;
+                    cout << endl;
+                    cout << "—— Copy konstruktorius ——" << endl;
+                    Studentas s4(s3);
+                    cout << "s3 kopija - vardas: " << s4.vardas() 
+                    << ", pavardė: " << s4.pavarde() 
+                    << ", egzaminas: " << s4.egzaminas() 
+                    << ", galutinis vid: " << s4.galutinisVid() << endl;
+                    cout << endl;
+                    s4.setVardas("Antanas");
+                    cout << "Po kopijos pakeitimo - s3.vardas: " << s3.vardas() 
+                    << ", s4.vardas: " << s4.vardas() << endl;
+                    cout << endl;
+                    cout << "—— Move konstruktorius ——" << endl;
+                    Studentas s5(std::move(s4));
+                    cout << "Movint’as iš s4 - vardas: " << s5.vardas() 
+                    << ", pavardė: " << s5.pavarde() 
+                    << ", egzaminas: " << s5.egzaminas() << endl;
+                    cout << endl;
+                    cout << "—— Copy assignment operatorius ——" << endl;
+                    Studentas s6;
+                    s6 = s3;
+                    cout << "s6 po s3 kopijavimo - vardas: " << s6.vardas() 
+                    << ", pavardė: " << s6.pavarde() << endl;
+                    cout << endl;
+                    cout << "—— Move assignment operatorius ——"  << endl;
+                    Studentas s7;
+                    s7 = std::move(s6);
+                    cout << "s7 po movinimo iš s6 - vardas: " << s7.vardas() 
+                    << ", pavardė: " << s7.pavarde() << endl;
+                    cout << endl;
+                    cout << "—— Output’o operatorius ——" << endl;
+                    cout << "s3 naudojant operatorių <<: " << s3 << endl;
+                    cout << endl;
+                    cout << "—— Input’o operatorius ——" << endl;
+                    string testInput = "Tomas Tomauskas 5 8 9 10 7 9";
+                    istringstream iss(testInput);
+                    Studentas s8;
+                    iss >> s8;
+                    cout << "s8 po input: " << s8 << endl;
+                    cout << endl;
+                    cout << "—— Destruktorius ——" << endl;
+                    testuotiDestruktoriu();
+                    cout << "—— Žmogaus konstuktorius ——" << endl;
+                    Zmogus z("Pranas", "Pranaitis");
+                    cout << z.vardas() << " " << z.pavarde() << endl;
+```
+<p>Kaip matoma iš žemiau pridėtos ekrano nuotraukos, testo rezultatai nuo v1.2 nepasikeitė: </p>
+<img width="659" alt="Screenshot 2025-05-07 at 18 29 18" src="https://github.com/user-attachments/assets/b74cb5c9-7950-4a78-99c4-2e5087e991f2" />
+
+<p>Ankstesnėje v1.2 šakoje implementuoti ir testuoti "Rule of five" metodai bei perdengti įvesties ir išvesties operatoriai. Jų veikimas pritaikytas anksčiau naudotose programos dalyse, tokiose kaip: nuskaitymas iš failo, studentų įvedimas ranka, studentų rezultatų išvedimas. </p>
 
 <p> Žemiau pateikiamos kodo iškarpos, rodančios "Rule of five" bei operatorių perdengimą. </p>
 
@@ -152,8 +225,7 @@ Destruktorius suveikė
 | 0.434467s | 0.418547s | 100 000 | -O3 | 332 | 329
 | 0.453639s | 0.428051s | 100 000 | -O2 | 319 | 315
 | 0.453065s | 0.427737s | 100 000 | -O1 | 317 | 331
-| 1.54309s | 1.32805s | 100 000 | - | 861 | 841 | 
-| |
+| 1.54309s | 1.32805s | 100 000 | - | 861 | 841 
 | 1.95142s | 1.70978s | 1 000 000 | -O3 | 332 | 329
 | 1.9155s | 1.73843s | 1 000 000 | -O2 | 319 | 315
 | 1.93125s | 1.7828s | 1 000 000 | -O1 | 317 | 331

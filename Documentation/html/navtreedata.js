@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", null ],
+  [ "Objektinis_programavimas_2", "index.html", [
+    [ "README", "d3/dcc/md__r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

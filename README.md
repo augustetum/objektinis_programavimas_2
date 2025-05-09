@@ -1,6 +1,59 @@
-<h1>v2.0</h2>
+<h2>Programos aprašymas</h2>
+<p>Programa yra skirta apdoroti studentus ir jų akademinių pasiekimų duomenis, tęsinyje iš objektinis_programavimas_2 realizuotas paveldimumas bei Rule of Five, sugeneruota projekto dokumentacija, realizuoti testai naudojantis Catch2. </p>
+<h4><b> Pradinės programos funkcijos: </b> </h4>
 
-<p>v2.0 sukurta dokumentacija ir atlikti unit testai</p>
+<ol>
+    <li>Įvesti visus studentų duomenis ranka</li>
+    <li>Įvesti studentų vardus, pavardes, atsitiktine tvarka generuoti pažymius</li>
+    <li>Atsitiktinai generuoti studentų vardus, pavardes ir pažymius</li>
+    <li>Nuskaityti duomenis iš failo</li>
+    <li>Atsitiktinai generuoti failą su studentų duomenimis</li>
+</ol>
+
+<p>Programoje taip pat pateiktos <b>trys strategijos</b>, skirtos testuoti skirtingų programos veikimo laiko priklausomybę nuo naudojamų konteinerių (<i>vector, list, deque</i>) skirstant studentus į pažangius ir nepažangius.  </p>
+
+<h4><b> Strategijų aprašymai: </b> </h4>
+<ol>
+    <li> Bendro studentų konteinerio (<i>vector, list ir deque tipų</i>) skaidymas (rūšiavimas) į du naujus <b>to paties tipo</b> konteinerius: pažangius ir nepažangius.</li>
+    <li> Bendro studentų konteinerio (<i>vector, list ir deque</i>) skaidymas (rūšiavimas) panaudojant tik nepažangių mokinių konteinerį. Tokiu būdu, jei studentas yra nepažangus, jis įkeliamas į nepažangiųjų konteinerį ir ištrinamas iš bendro studentų konteinerio. Atminties atveju ši strategija - efektyvesnė, tačiau dažni trynimai gali būti neefektyvūs tam tikro tipo konteineriams.</li>
+    <li>Bendro studentų konteinerio (<i>vector, list ir deque</i>) skaidymas (rūšiavimas) optimizuojant antrąją strategiją naudojant Standard Template Library (STL)</li>
+</ol>
+
+<h2>Naudojimosi instrukcija</h2>
+<ol>
+    <li>Susiinstaliuoti <a href="https://gnuwin32.sourceforge.net/packages/make.htm">MAKE</a></li>
+    <li>Atsidaryti terminalą</li>
+    <li>Klonuoti programos repozitoriją</li>
+
+    git clone https://github.com/augustetum/objektinis_programavimas_1.git
+
+ <li>Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrimą
+ <pre><code>make runT</code></pre>
+ Terminale rašyti žemiau esančią komandą, norint paleisti 1 strategiją
+ <pre><code>make run1</code></pre></li>
+ Terminale rašyti žemiau esančią komandą, norint paleisti 2 strategiją
+ <pre><code>make run2</code></pre></li>
+  Terminale rašyti žemiau esančią komandą, norint paleisti 3 strategiją
+ <pre><code>make run3</code></pre></li>
+   Terminale rašyti žemiau esančią komandą, norint paleisti pradinę programą
+ <pre><code>make runP</code></pre></li>
+    Terminale rašyti žemiau esančią komandą, norint paleisti testavimą (v2.0)
+ <pre><code>make test</code></pre></li>
+</ol>
+
+
+<h2>v2.0</h2>
+
+<p>v2.0 sukurta dokumentacija ir atlikti unit testai naudojantis Catch2 testavimo framework. Testai gali būti matomi faile "catchTests.cpp". Pagal žemiau pateiktą kodo iškarpą matoma, jog visi Rule of Five metodai, realizuoti Studento klasėje, veikia korektiškai. </p>
+
+````cpp
+Randomness seeded to: 3603547871
+===============================================================================
+All tests passed (7 assertions in 1 test case)
+````
+
+
+<h2>v1.5</h2>
 
 <p>v1.5 šakoje pridėta nauja klasė - Žmogus. Studento klasė dabar paveldi Žmogaus klasę, todėl atitinkamai buvo pakeisti ir konstruktoriai / destruktoriai. Nauja Žmogaus bei Studento klasė ištestuota su v1.2 versijoje sukurtu testavimo metodu. Rezultatai parodė, jog nauja klasė veikia su anksčiau implementuotais metodais, t.y. testo rezultatai sutampa su žemiau 1.2 versijoje aprašytais to pačio testo rezultatais.</p>
 
@@ -72,6 +125,24 @@
 ```
 <p>Kaip matoma iš žemiau pridėtos ekrano nuotraukos, testo rezultatai nuo v1.2 nepasikeitė: </p>
 <img width="659" alt="Screenshot 2025-05-07 at 18 29 18" src="https://github.com/user-attachments/assets/b74cb5c9-7950-4a78-99c4-2e5087e991f2" />
+
+<p>Tačiau, neleidžiama sukurti žmogaus objekto, dėl jo abstraktumo: </p>
+
+```cpp
+augustetumaite@Augustes-Air objektinis_programavimas_2 % make runP
+g++  -std=c++17 -I/opt/homebrew/Cellar/catch2/3.8.1/include    -c -o programaFunkcijos.o programaFunkcijos.cpp
+g++  -std=c++17 -I/opt/homebrew/Cellar/catch2/3.8.1/include  -c programa.cpp -o programa.o
+programa.cpp:321:28: error: variable type 'Zmogus' is an abstract class
+                    Zmogus z("Pranas", "Pranaitis");
+                           ^
+./humanClass.h:23:22: note: unimplemented pure virtual method 'printInfo' in 'Zmogus'
+        virtual void printInfo() const = 0;
+                     ^
+1 error generated.
+make: *** [programa.o] Error 1
+```
+
+<h2>v1.2</h2>
 
 <p>Ankstesnėje v1.2 šakoje implementuoti ir testuoti "Rule of five" metodai bei perdengti įvesties ir išvesties operatoriai. Jų veikimas pritaikytas anksčiau naudotose programos dalyse, tokiose kaip: nuskaitymas iš failo, studentų įvedimas ranka, studentų rezultatų išvedimas. </p>
 
@@ -214,6 +285,8 @@ s8 po input: Tomauskas           Tomas               8.52                8.60
 —— Destruktorius ——
 Destruktorius suveikė
 ```
+
+<h2>v1.1</h2>
 <p>Ankstesnė v1.1 šaka skirta palyginti "class" ir "struct" naudojimą talpinant studento duomenis. Tyrimas ir jo rezultatai pateikiami žemiau, v1.1 implementuota "class" lyginama su v1.0 versijoje naudotu "struct".</p>
 
 <p>Tyrimas vykdytas su 3 strategija (žr. v1.0) bei vektoriaus konteineriu, vykdytos 3 iteracijos.</p>

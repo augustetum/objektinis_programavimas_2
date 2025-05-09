@@ -1,4 +1,5 @@
 #include "studentClass.h"
+//visų programos funkcijų realizacijos
 
 void Studentas::skaiciuotiGalutiniSuVid(){
     vector<int> pazCopy = pazymiai_; 
@@ -236,7 +237,7 @@ void nuskaitytiFaila(string fail, vector<Studentas> &studentuSarasas){
                 studentuSarasas.push_back(s);
             }
 }
-
+//rikiavimo funkcijos
 void rikiuotiPagalVarda(vector<Studentas> &studentuSarasas){
     sort(studentuSarasas.begin(), studentuSarasas.end(), [](const Studentas& a, const Studentas& b) {
         return a.vardas() < b.vardas();
@@ -261,6 +262,7 @@ void rikiuotiPagalGalutiniVid(vector<Studentas> &studentuSarasas){
     });
 }
 
+//failų nuskaitymo testavimas
 void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
     string eilut;
     int pazymys;
@@ -365,6 +367,7 @@ void testuotiFailuNuskaityma(vector<Studentas> studentuSarasas, int kartai){
 
 }
 
+//vardo tikrinimo funkcija
 bool vardoTikrinimas(const string &vard){
     for(char c: vard){
         if (!isalpha(c)){
@@ -374,6 +377,7 @@ bool vardoTikrinimas(const string &vard){
     return true;
 }
 
+//studentų skirstymas
 void skirstytiStudentus(vector<Studentas> &studentuSarasas){
     Timer t;
     vector<Studentas> nepazangus;
@@ -393,6 +397,7 @@ void skirstytiStudentus(vector<Studentas> &studentuSarasas){
     isvestiDuFailus(nepazangus, pazangus);
 }
 
+//failų išvedimas
 void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2){
     Timer v;
     std::ostringstream buferis;
@@ -420,6 +425,7 @@ void isvestiDuFailus(vector<Studentas> grupe1, vector<Studentas> grupe2){
 
 }
 
+//input operatorius
 std::istream& operator>>(std::istream& cin, Studentas& s){
             string vardas, pavarde;
             vector<int> pazymiai;
@@ -455,11 +461,13 @@ std::istream& operator>>(std::istream& cin, Studentas& s){
             return cin;
 }
 
+//output operatorius
 std::ostream& operator<<(std::ostream& out, const Studentas &s) {
             out << std::left << std::setw(20) << s.pavarde() << std::setw(20) << s.vardas() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisVid() << std::setw(20) << std::fixed << std::setprecision(2) << s.galutinisMed() << endl;
             return out;
         }
 
+//destruktoriaus testavimo klasė
 void testuotiDestruktoriu(){
     Studentas s;
     s.~Studentas();

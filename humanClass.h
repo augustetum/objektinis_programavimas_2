@@ -19,4 +19,6 @@ class Zmogus {
             vardas_ = "";
             pavarde_ = "";
         }
+
+        virtual void printInfo() const = 0;
 };

@@ -116,6 +116,10 @@ class Studentas : public Zmogus {
 
         //input operatorius
         friend std::istream& operator>>(std::istream& cin, Studentas& s);
+        
+        void printInfo() const override {
+            cout << "Vardas: " << vardas() << ", Pavarde: " << pavarde() << endl;
+        }
 };
 
 bool compare(const Studentas&, const Studentas&);

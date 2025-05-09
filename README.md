@@ -69,7 +69,8 @@
                     cout << z.vardas() << " " << z.pavarde() << endl;
 ```
 <p>Kaip matoma iš žemiau pridėtos ekrano nuotraukos, testo rezultatai nuo v1.2 nepasikeitė: </p>
-<img width="659" alt="Screenshot 2025-05-07 at 18 29 18" src="https://github.com/user-attachments/assets/b74cb5c9-7950-4a78-99c4-2e5087e991f2" />
+
+<p>Žmogaus klasė lieka abstrakti, todėl žmogaus objekto sukurti neišeina: </p>
 
 <p>Ankstesnėje v1.2 šakoje implementuoti ir testuoti "Rule of five" metodai bei perdengti įvesties ir išvesties operatoriai. Jų veikimas pritaikytas anksčiau naudotose programos dalyse, tokiose kaip: nuskaitymas iš failo, studentų įvedimas ranka, studentų rezultatų išvedimas. </p>
 

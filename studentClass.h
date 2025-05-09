@@ -110,6 +110,16 @@ class Studentas : public Zmogus {
             
             return *this;
         }
+        
+        //palyginimo operatorius
+        bool operator== (const Studentas& s) const{
+            if(vardas_ == s.vardas_ && pavarde_ == s.pavarde_ && egzaminas_ == s.egzaminas_
+            && pazymiai_ == s.pazymiai_){
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         //output operatorius
         friend std::ostream& operator<<(std::ostream& out, const Studentas &s);
@@ -141,7 +151,6 @@ class Studentas : public Zmogus {
         }
 };
 
-bool compare(const Studentas&, const Studentas&);
 bool comparePagalPavarde(const Studentas&, const Studentas&);
 bool comparePagalEgza(const Studentas&, const Studentas&);
 

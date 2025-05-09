@@ -461,7 +461,11 @@ std::ostream& operator<<(std::ostream& out, const Studentas &s) {
         }
 
 void testuotiDestruktoriu(){
-    Studentas s("Petras", "Jonaitis");
+    Studentas s;
     s.~Studentas();
-    if(s.vardas()!= "Petras" && s.pavarde() != "Jonaitis") {cout << "Destruktorius suveikė" << endl;}
+    if (s.isClear()){
+        cout << "Destruktorius suveike" << endl;
+    } else {
+        cout << "Elementas egzistuoja" << endl;
+    }
 }

@@ -55,11 +55,13 @@ class Studentas : public Zmogus {
         Studentas(Studentas&& s)
         : Zmogus(s.vardas(), s.pavarde()), egzaminas_{s.egzaminas_}, 
         galutinisMed_{s.galutinisMed_}, galutinisVid_{s.galutinisVid_}, pazymiuVidurkis_{s.pazymiuVidurkis_},
-        pazymiai_{std::move(s.pazymiai_)}{}
+        pazymiai_{std::move(s.pazymiai_)}{
+            s.clearStud();
+        }
 
         //destruktorius
         ~Studentas() override{
-            pazymiai_.clear();
+            clearStud();
         };
 
         //get'eriai
@@ -104,9 +106,7 @@ class Studentas : public Zmogus {
             galutinisVid_ = s.galutinisVid_;
             pazymiuVidurkis_ = s.pazymiuVidurkis_;
             pazymiai_ = std::move(s.pazymiai_);
-
-            s.setVardas("");
-            s.setPavarde("");
+            s.clearStud();
             
             return *this;
         }
@@ -119,6 +119,25 @@ class Studentas : public Zmogus {
         
         void printInfo() const override {
             cout << "Vardas: " << vardas() << ", Pavarde: " << pavarde() << endl;
+        }
+
+        void clearStud (){
+            this->vardas_.clear();
+            this->pavarde_.clear();
+            egzaminas_ = 0;
+            galutinisMed_ = 0;
+            galutinisVid_ = 0;
+            pazymiuVidurkis_ = 0;
+            pazymiai_.clear();
+        }
+
+        bool isClear(){
+            if(this->vardas_.empty() && this -> pavarde_.empty() && pazymiai_.empty() && egzaminas_ == 0 && galutinisMed_ == 0 && galutinisVid_ == 0 && 
+            pazymiuVidurkis_ == 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
 };
 

@@ -302,9 +302,11 @@ int main(){
                     cout << "—— Move assignment operatorius ——"  << endl;
                     Studentas s7;
                     s7 = std::move(s6);
+                    cout << "s6 po movinimo" << s6.vardas() << s6.pavarde() << " " << s6.egzaminas() << endl;
                     cout << "s7 po movinimo iš s6 - vardas: " << s7.vardas() 
                     << ", pavardė: " << s7.pavarde() << endl;
                     cout << endl;
+
                     cout << "—— Output’o operatorius ——" << endl;
                     cout << "s3 naudojant operatorių <<: " << s3 << endl;
                     cout << endl;

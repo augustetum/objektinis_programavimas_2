@@ -2,7 +2,7 @@
 using std::string;
 
 class Zmogus {
-    private:
+    protected:
         string vardas_;
         string pavarde_;
     public:
@@ -16,8 +16,8 @@ class Zmogus {
         inline void setPavarde(string pav) { pavarde_ = pav; }
 
         virtual ~Zmogus() {
-            vardas_ = "";
-            pavarde_ = "";
+            vardas_.clear();
+            pavarde_.clear();
         }
 
         virtual void printInfo() const = 0;

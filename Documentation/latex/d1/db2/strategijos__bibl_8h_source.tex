@@ -1,12 +1,12 @@
 \doxysection{strategijos\+\_\+bibl.\+h}
 \hypertarget{strategijos__bibl_8h_source}{}\label{strategijos__bibl_8h_source}\index{1\_strategija/strategijos\_bibl.h@{1\_strategija/strategijos\_bibl.h}}
-
+\mbox{\hyperlink{strategijos__bibl_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STRATEGIJOS1\_BIBL\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STRATEGIJOS1\_BIBL\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../studentClass.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{student_class_8h}{../studentClass.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <thread>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
 \DoxyCodeLine{00008\ }
@@ -14,7 +14,7 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::list;}
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>\ }
-\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ nuskaitytiFailaT(\textcolor{keywordtype}{string}\ fail,\ Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_a5f4009c12e2ed3272416bc89658bde47}{nuskaitytiFailaT}}(\textcolor{keywordtype}{string}\ fail,\ Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{string}\ eilut;}
 \DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ pazymys;}
 \DoxyCodeLine{00016\ \ \ \ \ std::stringstream\ buferis;}
@@ -68,10 +68,10 @@
 \DoxyCodeLine{00064\ \}}
 \DoxyCodeLine{00065\ }
 \DoxyCodeLine{00066\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ rikiuotiPagalVardaT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_ab1b18214ea2b868cec91cebb53cc90c3}{rikiuotiPagalVardaT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<Container,\ std::list<Studentas>>)\ \{}
 \DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ studentuSarasas.sort([](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.vardas()\ <\ b.vardas();}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{class_zmogus_a03de7738fc8f68275e401a3b96954cf0}{vardas}}()\ <\ b.\mbox{\hyperlink{class_zmogus_a03de7738fc8f68275e401a3b96954cf0}{vardas}}();}
 \DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00072\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ sort(studentuSarasas.begin(),\ studentuSarasas.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ b)\ \{}
@@ -82,10 +82,10 @@
 \DoxyCodeLine{00078\ \}}
 \DoxyCodeLine{00079\ }
 \DoxyCodeLine{00080\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ rikiuotiPagalPavardeT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_a10f956bfd4f9bd7df962b611dca532d3}{rikiuotiPagalPavardeT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<Container,\ std::list<Studentas>>)\ \{}
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ studentuSarasas.sort([](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b)\ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.pavarde()\ <\ b.pavarde();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{class_zmogus_a24b5b4208f386916dc5c1ccf006bdedf}{pavarde}}()\ <\ b.\mbox{\hyperlink{class_zmogus_a24b5b4208f386916dc5c1ccf006bdedf}{pavarde}}();}
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00086\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ sort(studentuSarasas.begin(),\ studentuSarasas.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ b)\ \{}
@@ -96,10 +96,10 @@
 \DoxyCodeLine{00092\ \}}
 \DoxyCodeLine{00093\ }
 \DoxyCodeLine{00094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ rikiuotiPagalGalutiniMedT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_ac31cce6a1b406a7fbf2b75c8bf9bd2ef}{rikiuotiPagalGalutiniMedT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<Container,\ std::list<Studentas>>)\ \{}
 \DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ studentuSarasas.sort([](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b)\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.galutinisMed()\ <\ b.galutinisMed();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{class_studentas_ab9dcc63a1ad95f1f34db3e5a96449720}{galutinisMed}}()\ <\ b.\mbox{\hyperlink{class_studentas_ab9dcc63a1ad95f1f34db3e5a96449720}{galutinisMed}}();}
 \DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00100\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ sort(studentuSarasas.begin(),\ studentuSarasas.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ b)\ \{}
@@ -110,10 +110,10 @@
 \DoxyCodeLine{00106\ \}}
 \DoxyCodeLine{00107\ }
 \DoxyCodeLine{00108\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ rikiuotiPagalGalutiniVidT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<Container,\ std::list<Studentas>>)\ \{}
 \DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ studentuSarasas.sort([](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b)\ \{}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.galutinisVid()\ >\ b.galutinisVid();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{class_studentas_a49a2519eb2a57b8c0b572cf414ccc3fc}{galutinisVid}}()\ >\ b.\mbox{\hyperlink{class_studentas_a49a2519eb2a57b8c0b572cf414ccc3fc}{galutinisVid}}();}
 \DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00114\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ sort(studentuSarasas.begin(),\ studentuSarasas.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ b)\ \{}
@@ -124,7 +124,7 @@
 \DoxyCodeLine{00120\ \}}
 \DoxyCodeLine{00121\ }
 \DoxyCodeLine{00122\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ skirstytiStudentusSuTaisPaciaisKonteineriaisT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_add2b88f7f5785f4df05911ed7f8545d0}{skirstytiStudentusSuTaisPaciaisKonteineriaisT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00124\ \ \ \ \ Container\ nepazangus;}
 \DoxyCodeLine{00125\ \ \ \ \ Container\ pazangus;}
 \DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_studentas}{Studentas}}\ s\ :\ studentuSarasas)\{}
@@ -142,9 +142,9 @@
 \DoxyCodeLine{00138\ \}}
 \DoxyCodeLine{00139\ }
 \DoxyCodeLine{00140\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ skirstytiStudentusSuVienuKonteineriuT(Container\ \&studentuSarasas,\ \textcolor{keywordtype}{int}\ rikiavimas)\{}
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_ae0541de34fe5e42d12c4f45e570435d9}{skirstytiStudentusSuVienuKonteineriuT}}(Container\ \&studentuSarasas,\ \textcolor{keywordtype}{int}\ rikiavimas)\{}
 \DoxyCodeLine{00142\ \ \ \ \ Container\ nepazangus;}
-\DoxyCodeLine{00143\ \ \ \ \ rikiuotiPagalGalutiniVidT(studentuSarasas);}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(studentuSarasas);}
 \DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{while}\ (studentuSarasas.back().galutinisVid()\ <\ 5)\ \{}
 \DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ nepazangus.push\_back(studentuSarasas.back());}
 \DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ studentuSarasas.pop\_back();}
@@ -157,23 +157,23 @@
 \DoxyCodeLine{00153\ }
 \DoxyCodeLine{00154\ }
 \DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 1)\ \{}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalVardaT(studentuSarasas);}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalVardaT(nepazangus);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ab1b18214ea2b868cec91cebb53cc90c3}{rikiuotiPagalVardaT}}(studentuSarasas);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ab1b18214ea2b868cec91cebb53cc90c3}{rikiuotiPagalVardaT}}(nepazangus);}
 \DoxyCodeLine{00158\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 2)\ \{}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalPavardeT(studentuSarasas);}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalPavardeT(nepazangus);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_a10f956bfd4f9bd7df962b611dca532d3}{rikiuotiPagalPavardeT}}(studentuSarasas);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_a10f956bfd4f9bd7df962b611dca532d3}{rikiuotiPagalPavardeT}}(nepazangus);}
 \DoxyCodeLine{00161\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 3)\ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalGalutiniVidT(studentuSarasas);}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalGalutiniVidT(nepazangus);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(studentuSarasas);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(nepazangus);}
 \DoxyCodeLine{00164\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 4)\ \{}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalGalutiniMedT(studentuSarasas);}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ rikiuotiPagalGalutiniMedT(nepazangus);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ac31cce6a1b406a7fbf2b75c8bf9bd2ef}{rikiuotiPagalGalutiniMedT}}(studentuSarasas);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{strategijos__bibl_8h_ac31cce6a1b406a7fbf2b75c8bf9bd2ef}{rikiuotiPagalGalutiniMedT}}(nepazangus);}
 \DoxyCodeLine{00167\ \ \ \ \ \}\ }
 \DoxyCodeLine{00168\ }
 \DoxyCodeLine{00169\ \}}
 \DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ skirstytiStudentusT(Container\ \&studentuSarasas)\{}
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_acb4b5d7f6a63dc4a9d0f6b15d2f00514}{skirstytiStudentusT}}(Container\ \&studentuSarasas)\{}
 \DoxyCodeLine{00173\ \ \ \ \ Container\ nepazangus;}
 \DoxyCodeLine{00174\ \ \ \ \ Container\ pazangus;}
 \DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_studentas}{Studentas}}\ s\ :\ studentuSarasas)\{}
@@ -192,7 +192,7 @@
 \DoxyCodeLine{00188\ \}}
 \DoxyCodeLine{00189\ }
 \DoxyCodeLine{00190\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ studentuSkirstymas3(Container\ \&studentuSarasas,\ \textcolor{keywordtype}{int}\ rikiavimas)\{}
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{strategijos__bibl_8h_a25109038715ee91b1055522fd90ca481}{studentuSkirstymas3}}(Container\ \&studentuSarasas,\ \textcolor{keywordtype}{int}\ rikiavimas)\{}
 \DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::partition(studentuSarasas.begin(),\ studentuSarasas.end(),\ [](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&studentas)\ \{\ return\ studentas.galutinisVid()\ >=\ 5;\ \});}
 \DoxyCodeLine{00193\ \ \ \ \ Container\ nepazangus;}
 \DoxyCodeLine{00194\ \ \ \ \ nepazangus.assign(it,\ studentuSarasas.end());}
@@ -201,23 +201,23 @@
 \DoxyCodeLine{00197\ \ \ \ \ std::thread\ t1,\ t2;}
 \DoxyCodeLine{00198\ }
 \DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 1)\ \{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ rikiuotiPagalVardaT(studentuSarasas);\ \});}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ rikiuotiPagalVardaT(nepazangus);\ \});}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ab1b18214ea2b868cec91cebb53cc90c3}{rikiuotiPagalVardaT}}(studentuSarasas);\ \});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ab1b18214ea2b868cec91cebb53cc90c3}{rikiuotiPagalVardaT}}(nepazangus);\ \});}
 \DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ t1.join();}
 \DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ t2.join();}
 \DoxyCodeLine{00204\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 2)\ \{}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ rikiuotiPagalPavardeT(studentuSarasas);\ \});}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ rikiuotiPagalPavardeT(nepazangus);\ \});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_a10f956bfd4f9bd7df962b611dca532d3}{rikiuotiPagalPavardeT}}(studentuSarasas);\ \});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_a10f956bfd4f9bd7df962b611dca532d3}{rikiuotiPagalPavardeT}}(nepazangus);\ \});}
 \DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ t1.join();}
 \DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ t2.join();}
 \DoxyCodeLine{00209\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 3)\ \{}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ rikiuotiPagalGalutiniVidT(studentuSarasas);\ \});}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ rikiuotiPagalGalutiniVidT(nepazangus);\ \});}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(studentuSarasas);\ \});}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ac7911f61867c31a6e764bbdb86db1962}{rikiuotiPagalGalutiniVidT}}(nepazangus);\ \});}
 \DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ t1.join();}
 \DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ t2.join();}
 \DoxyCodeLine{00214\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rikiavimas\ ==\ 4)\ \{}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ rikiuotiPagalGalutiniMedT(studentuSarasas);\ \});}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ rikiuotiPagalGalutiniMedT(nepazangus);\ \});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::thread\ t1([\&studentuSarasas]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ac31cce6a1b406a7fbf2b75c8bf9bd2ef}{rikiuotiPagalGalutiniMedT}}(studentuSarasas);\ \});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::thread\ t2([\&nepazangus]()\ \{\ \mbox{\hyperlink{strategijos__bibl_8h_ac31cce6a1b406a7fbf2b75c8bf9bd2ef}{rikiuotiPagalGalutiniMedT}}(nepazangus);\ \});}
 \DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ t1.join();}
 \DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ t2.join();}
 \DoxyCodeLine{00219\ \ \ \ \ \}\ }

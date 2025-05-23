@@ -105,11 +105,11 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
   <div class="headertitle"><div class="title">strategijos_bibl.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STRATEGIJOS1_BIBL_H</span></div>
+<a href="../../d1/db2/strategijos__bibl_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STRATEGIJOS1_BIBL_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STRATEGIJOS1_BIBL_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../studentClass.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d01/student_class_8h.html">../studentClass.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
@@ -117,7 +117,8 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::list;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt; </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> nuskaitytiFailaT(<span class="keywordtype">string</span> fail, Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#a5f4009c12e2ed3272416bc89658bde47">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a5f4009c12e2ed3272416bc89658bde47">nuskaitytiFailaT</a>(<span class="keywordtype">string</span> fail, Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">string</span> eilut;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> pazymys;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::stringstream buferis;</div>
@@ -169,12 +170,14 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                pazymiai.clear();</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> rikiuotiPagalVardaT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;Container, std::list&lt;Studentas&gt;&gt;) {</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        studentuSarasas.sort([](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;b) {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">return</span> a.vardas() &lt; b.vardas();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">return</span> a.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">vardas</a>() &lt; b.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">vardas</a>();</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        });</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        sort(studentuSarasas.begin(), studentuSarasas.end(), [](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; b) {</div>
@@ -183,12 +186,14 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> rikiuotiPagalPavardeT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">   81</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;Container, std::list&lt;Studentas&gt;&gt;) {</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        studentuSarasas.sort([](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;b) {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> a.pavarde() &lt; b.pavarde();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> a.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">pavarde</a>() &lt; b.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">pavarde</a>();</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        });</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        sort(studentuSarasas.begin(), studentuSarasas.end(), [](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; b) {</div>
@@ -197,12 +202,14 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> rikiuotiPagalGalutiniMedT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">   95</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;Container, std::list&lt;Studentas&gt;&gt;) {</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        studentuSarasas.sort([](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;b) {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> a.galutinisMed() &lt; b.galutinisMed();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> a.<a class="code hl_function" href="../../da/db8/class_studentas.html#ab9dcc63a1ad95f1f34db3e5a96449720">galutinisMed</a>() &lt; b.<a class="code hl_function" href="../../da/db8/class_studentas.html#ab9dcc63a1ad95f1f34db3e5a96449720">galutinisMed</a>();</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        });</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        sort(studentuSarasas.begin(), studentuSarasas.end(), [](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; b) {</div>
@@ -211,12 +218,14 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> rikiuotiPagalGalutiniVidT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">  109</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;Container, std::list&lt;Studentas&gt;&gt;) {</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        studentuSarasas.sort([](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;b) {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">return</span> a.galutinisVid() &gt; b.galutinisVid();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">return</span> a.<a class="code hl_function" href="../../da/db8/class_studentas.html#a49a2519eb2a57b8c0b572cf414ccc3fc">galutinisVid</a>() &gt; b.<a class="code hl_function" href="../../da/db8/class_studentas.html#a49a2519eb2a57b8c0b572cf414ccc3fc">galutinisVid</a>();</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        });</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        sort(studentuSarasas.begin(), studentuSarasas.end(), [](<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; b) {</div>
@@ -225,9 +234,11 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> skirstytiStudentusSuTaisPaciaisKonteineriaisT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#add2b88f7f5785f4df05911ed7f8545d0">  123</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#add2b88f7f5785f4df05911ed7f8545d0">skirstytiStudentusSuTaisPaciaisKonteineriaisT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    Container nepazangus;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    Container pazangus;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">for</span>(<a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s : studentuSarasas){</div>
@@ -243,11 +254,13 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        pazangus.shrink_to_fit();</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}</div>
+</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keywordtype">void</span> skirstytiStudentusSuVienuKonteineriuT(Container &amp;studentuSarasas, <span class="keywordtype">int</span> rikiavimas){</div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#ae0541de34fe5e42d12c4f45e570435d9">  141</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ae0541de34fe5e42d12c4f45e570435d9">skirstytiStudentusSuVienuKonteineriuT</a>(Container &amp;studentuSarasas, <span class="keywordtype">int</span> rikiavimas){</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    Container nepazangus;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    rikiuotiPagalGalutiniVidT(studentuSarasas);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(studentuSarasas);</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">while</span> (studentuSarasas.back().galutinisVid() &lt; 5) {</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        nepazangus.push_back(studentuSarasas.back());</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        studentuSarasas.pop_back();</div>
@@ -260,23 +273,25 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">if</span> (rikiavimas == 1) {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            rikiuotiPagalVardaT(studentuSarasas);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            rikiuotiPagalVardaT(nepazangus);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a>(studentuSarasas);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a>(nepazangus);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 2) {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            rikiuotiPagalPavardeT(studentuSarasas);</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            rikiuotiPagalPavardeT(nepazangus);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a>(studentuSarasas);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a>(nepazangus);</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 3) {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            rikiuotiPagalGalutiniVidT(studentuSarasas);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            rikiuotiPagalGalutiniVidT(nepazangus);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(studentuSarasas);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(nepazangus);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 4) {</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            rikiuotiPagalGalutiniMedT(studentuSarasas);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            rikiuotiPagalGalutiniMedT(nepazangus);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a>(studentuSarasas);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a>(nepazangus);</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    } </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>}</div>
+</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keywordtype">void</span> skirstytiStudentusT(Container &amp;studentuSarasas){</div>
+<div class="foldopen" id="foldopen00172" data-start="{" data-end="}">
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#acb4b5d7f6a63dc4a9d0f6b15d2f00514">  172</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#acb4b5d7f6a63dc4a9d0f6b15d2f00514">skirstytiStudentusT</a>(Container &amp;studentuSarasas){</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    Container nepazangus;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    Container pazangus;</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">for</span>(<a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s : studentuSarasas){</div>
@@ -293,9 +308,11 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    studentuSarasas.clear();</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
+</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keywordtype">void</span> studentuSkirstymas3(Container &amp;studentuSarasas, <span class="keywordtype">int</span> rikiavimas){</div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d1/db2/strategijos__bibl_8h.html#a25109038715ee91b1055522fd90ca481">  191</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a25109038715ee91b1055522fd90ca481">studentuSkirstymas3</a>(Container &amp;studentuSarasas, <span class="keywordtype">int</span> rikiavimas){</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">auto</span> it = std::partition(studentuSarasas.begin(), studentuSarasas.end(), [](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;studentas) { return studentas.galutinisVid() &gt;= 5; });</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    Container nepazangus;</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    nepazangus.assign(it, studentuSarasas.end());</div>
@@ -304,23 +321,23 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    std::thread t1, t2;</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">if</span> (rikiavimas == 1) {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        std::thread t1([&amp;studentuSarasas]() { rikiuotiPagalVardaT(studentuSarasas); });</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        std::thread t2([&amp;nepazangus]() { rikiuotiPagalVardaT(nepazangus); });</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        std::thread t1([&amp;studentuSarasas]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a>(studentuSarasas); });</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        std::thread t2([&amp;nepazangus]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a>(nepazangus); });</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        t1.join();</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        t2.join();</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 2) {</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        std::thread t1([&amp;studentuSarasas]() { rikiuotiPagalPavardeT(studentuSarasas); });</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        std::thread t2([&amp;nepazangus]() { rikiuotiPagalPavardeT(nepazangus); });</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        std::thread t1([&amp;studentuSarasas]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a>(studentuSarasas); });</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        std::thread t2([&amp;nepazangus]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a>(nepazangus); });</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        t1.join();</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        t2.join();</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 3) {</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        std::thread t1([&amp;studentuSarasas]() { rikiuotiPagalGalutiniVidT(studentuSarasas); });</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        std::thread t2([&amp;nepazangus]() { rikiuotiPagalGalutiniVidT(nepazangus); });</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        std::thread t1([&amp;studentuSarasas]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(studentuSarasas); });</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        std::thread t2([&amp;nepazangus]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a>(nepazangus); });</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        t1.join();</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        t2.join();</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rikiavimas == 4) {</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        std::thread t1([&amp;studentuSarasas]() { rikiuotiPagalGalutiniMedT(studentuSarasas); });</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        std::thread t2([&amp;nepazangus]() { rikiuotiPagalGalutiniMedT(nepazangus); });</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        std::thread t1([&amp;studentuSarasas]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a>(studentuSarasas); });</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        std::thread t2([&amp;nepazangus]() { <a class="code hl_function" href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a>(nepazangus); });</div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        t1.join();</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        t2.join();</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    } </div>
@@ -328,15 +345,30 @@ $(function(){initNavTree('d1/db2/strategijos__bibl_8h_source.html','../../'); in
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordflow">if</span> (t1.joinable()) t1.join();</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">if</span> (t2.joinable()) t2.join();</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>}</div>
+</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
 <div class="ttc" id="aclass_studentas_html"><div class="ttname"><a href="../../da/db8/class_studentas.html">Studentas</a></div><div class="ttdef"><b>Definition</b> studentClass.h:28</div></div>
+<div class="ttc" id="aclass_studentas_html_a49a2519eb2a57b8c0b572cf414ccc3fc"><div class="ttname"><a href="../../da/db8/class_studentas.html#a49a2519eb2a57b8c0b572cf414ccc3fc">Studentas::galutinisVid</a></div><div class="ttdeci">double galutinisVid() const</div><div class="ttdef"><b>Definition</b> studentClass.h:69</div></div>
+<div class="ttc" id="aclass_studentas_html_ab9dcc63a1ad95f1f34db3e5a96449720"><div class="ttname"><a href="../../da/db8/class_studentas.html#ab9dcc63a1ad95f1f34db3e5a96449720">Studentas::galutinisMed</a></div><div class="ttdeci">double galutinisMed() const</div><div class="ttdef"><b>Definition</b> studentClass.h:68</div></div>
+<div class="ttc" id="aclass_zmogus_html_a03de7738fc8f68275e401a3b96954cf0"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">Zmogus::vardas</a></div><div class="ttdeci">std::string vardas() const</div><div class="ttdef"><b>Definition</b> humanClass.h:12</div></div>
+<div class="ttc" id="aclass_zmogus_html_a24b5b4208f386916dc5c1ccf006bdedf"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">Zmogus::pavarde</a></div><div class="ttdeci">std::string pavarde() const</div><div class="ttdef"><b>Definition</b> humanClass.h:13</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_a10f956bfd4f9bd7df962b611dca532d3"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#a10f956bfd4f9bd7df962b611dca532d3">rikiuotiPagalPavardeT</a></div><div class="ttdeci">void rikiuotiPagalPavardeT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:81</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_a25109038715ee91b1055522fd90ca481"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#a25109038715ee91b1055522fd90ca481">studentuSkirstymas3</a></div><div class="ttdeci">void studentuSkirstymas3(Container &amp;studentuSarasas, int rikiavimas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:191</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_a5f4009c12e2ed3272416bc89658bde47"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#a5f4009c12e2ed3272416bc89658bde47">nuskaitytiFailaT</a></div><div class="ttdeci">void nuskaitytiFailaT(string fail, Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:13</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_ab1b18214ea2b868cec91cebb53cc90c3"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#ab1b18214ea2b868cec91cebb53cc90c3">rikiuotiPagalVardaT</a></div><div class="ttdeci">void rikiuotiPagalVardaT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:67</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_ac31cce6a1b406a7fbf2b75c8bf9bd2ef"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#ac31cce6a1b406a7fbf2b75c8bf9bd2ef">rikiuotiPagalGalutiniMedT</a></div><div class="ttdeci">void rikiuotiPagalGalutiniMedT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:95</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_ac7911f61867c31a6e764bbdb86db1962"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#ac7911f61867c31a6e764bbdb86db1962">rikiuotiPagalGalutiniVidT</a></div><div class="ttdeci">void rikiuotiPagalGalutiniVidT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:109</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_acb4b5d7f6a63dc4a9d0f6b15d2f00514"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#acb4b5d7f6a63dc4a9d0f6b15d2f00514">skirstytiStudentusT</a></div><div class="ttdeci">void skirstytiStudentusT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:172</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_add2b88f7f5785f4df05911ed7f8545d0"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#add2b88f7f5785f4df05911ed7f8545d0">skirstytiStudentusSuTaisPaciaisKonteineriaisT</a></div><div class="ttdeci">void skirstytiStudentusSuTaisPaciaisKonteineriaisT(Container &amp;studentuSarasas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:123</div></div>
+<div class="ttc" id="astrategijos__bibl_8h_html_ae0541de34fe5e42d12c4f45e570435d9"><div class="ttname"><a href="../../d1/db2/strategijos__bibl_8h.html#ae0541de34fe5e42d12c4f45e570435d9">skirstytiStudentusSuVienuKonteineriuT</a></div><div class="ttdeci">void skirstytiStudentusSuVienuKonteineriuT(Container &amp;studentuSarasas, int rikiavimas)</div><div class="ttdef"><b>Definition</b> strategijos_bibl.h:141</div></div>
+<div class="ttc" id="astudent_class_8h_html"><div class="ttname"><a href="../../d1/d01/student_class_8h.html">studentClass.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5335bae0bb6979ecdb9f88bc601bfd55.html">1_strategija</a></li><li class="navelem"><b>strategijos_bibl.h</b></li>
+    <li class="navelem"><a class="el" href="../../dir_5335bae0bb6979ecdb9f88bc601bfd55.html">1_strategija</a></li><li class="navelem"><a class="el" href="../../d1/db2/strategijos__bibl_8h.html">strategijos_bibl.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

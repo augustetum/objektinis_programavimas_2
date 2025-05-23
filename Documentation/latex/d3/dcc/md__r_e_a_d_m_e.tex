@@ -76,7 +76,7 @@ v1.\+5 šakoje pridėta nauja klasė -\/ Žmogus. Studento klasė dabar paveldi 
 \DoxyCodeLine{cout\ <<\ \textcolor{stringliteral}{"{}Pasirinkote\ testuoti\ klasę:\ "{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Default\ konstruktorius\ ——"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s1;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Egzaminas:\ "{}}\ <<\ s1.egzaminas()\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Egzaminas:\ "{}}\ <<\ s1.\mbox{\hyperlink{class_studentas_a8ec75244e6c21cf5a6af9f6d02f20fa2}{egzaminas}}()\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Vardo,\ pavardės\ konstruktorius\ ——"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s2(\textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}});}
@@ -111,14 +111,14 @@ v1.\+5 šakoje pridėta nauja klasė -\/ Žmogus. Studento klasė dabar paveldi 
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Copy\ assignment\ operatorius\ ——"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s6;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s6\ =\ s3;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s6\ po\ s3\ kopijavimo\ -\/\ vardas:\ "{}}\ <<\ s6.vardas()\ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ pavardė:\ "{}}\ <<\ s6.pavarde()\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s6\ po\ s3\ kopijavimo\ -\/\ vardas:\ "{}}\ <<\ s6.\mbox{\hyperlink{class_zmogus_a03de7738fc8f68275e401a3b96954cf0}{vardas}}()\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ pavardė:\ "{}}\ <<\ s6.\mbox{\hyperlink{class_zmogus_a24b5b4208f386916dc5c1ccf006bdedf}{pavarde}}()\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Move\ assignment\ operatorius\ ——"{}}\ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s7;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s7\ =\ std::move(s6);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s7\ po\ movinimo\ iš\ s6\ -\/\ vardas:\ "{}}\ <<\ s7.vardas()\ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ pavardė:\ "{}}\ <<\ s7.pavarde()\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s7\ po\ movinimo\ iš\ s6\ -\/\ vardas:\ "{}}\ <<\ s7.\mbox{\hyperlink{class_zmogus_a03de7738fc8f68275e401a3b96954cf0}{vardas}}()\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ pavardė:\ "{}}\ <<\ s7.\mbox{\hyperlink{class_zmogus_a24b5b4208f386916dc5c1ccf006bdedf}{pavarde}}()\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Output’o\ operatorius\ ——"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s3\ naudojant\ operatorių\ <<:\ "{}}\ <<\ s3\ <<\ endl;}
@@ -131,7 +131,7 @@ v1.\+5 šakoje pridėta nauja klasė -\/ Žmogus. Studento klasė dabar paveldi 
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}s8\ po\ input:\ "{}}\ <<\ s8\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Destruktorius\ ——"{}}\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ testuotiDestruktoriu();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{programa_funkcijos_8cpp_a08dffffaa352966c123e41c1936e17d8}{testuotiDestruktoriu}}();}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}——\ Žmogaus\ konstuktorius\ ——"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_zmogus}{Zmogus}}\ z(\textcolor{stringliteral}{"{}Pranas"{}},\ \textcolor{stringliteral}{"{}Pranaitis"{}});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ z.vardas()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ z.pavarde()\ <<\ endl;}
@@ -194,8 +194,8 @@ Ankstesnėje v1.\+2 šakoje implementuoti ir testuoti "{}\+Rule of five"{} metod
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&s)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ s.vardas\_;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ s.pavarde\_;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ s.\mbox{\hyperlink{class_zmogus_a09b290c9be6039ce3a94e1557def9b3a}{vardas\_}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ s.\mbox{\hyperlink{class_zmogus_a95b83ef4d9bbe9b88d78c17563bafa5a}{pavarde\_}};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ egzaminas\_\ =\ s.egzaminas\_;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisMed\_\ =\ s.galutinisMed\_;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisVid\_\ =\ s.galutinisVid\_;}
@@ -209,8 +209,8 @@ Ankstesnėje v1.\+2 šakoje implementuoti ir testuoti "{}\+Rule of five"{} metod
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ operator\ =(\mbox{\hyperlink{class_studentas}{Studentas}}\&\&\ s)\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&s)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ std::move(s.vardas\_);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ std::move(s.pavarde\_);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vardas\_\ =\ std::move(s.\mbox{\hyperlink{class_zmogus_a09b290c9be6039ce3a94e1557def9b3a}{vardas\_}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pavarde\_\ =\ std::move(s.\mbox{\hyperlink{class_zmogus_a95b83ef4d9bbe9b88d78c17563bafa5a}{pavarde\_}});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ egzaminas\_\ =\ s.egzaminas\_;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisMed\_\ =\ s.galutinisMed\_;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ galutinisVid\_\ =\ s.galutinisVid\_;}
@@ -228,7 +228,7 @@ Ankstesnėje v1.\+2 šakoje implementuoti ir testuoti "{}\+Rule of five"{} metod
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//perdengtas\ įvesties\ operatorius\ (panaikintas\ vardo\ ir\ pavardės\ tikrinimas\ dėl\ failuose\ esančio\ formatavimo,\ kur\ vardas\ ir\ pavardė\ GALI\ turėti\ skaičius)}}
-\DoxyCodeLine{std::istream\&\ operator>>(std::istream\&\ cin,\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\{}
+\DoxyCodeLine{std::istream\&\ \mbox{\hyperlink{programa_funkcijos_8cpp_a87ec36ae566010b6db7a89076491c5c9}{operator>>}}(std::istream\&\ cin,\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas,\ pavarde;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vector<int>\ pazymiai;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egzaminas,\ pazymys;}
@@ -264,8 +264,8 @@ Ankstesnėje v1.\+2 šakoje implementuoti ir testuoti "{}\+Rule of five"{} metod
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//perdengtas\ išvesties\ operatorius}}
-\DoxyCodeLine{std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&s)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(20)\ <<\ s.pavarde()\ <<\ std::setw(20)\ <<\ s.vardas()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.galutinisVid()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.galutinisMed()\ <<\ endl;}
+\DoxyCodeLine{std::ostream\&\ \mbox{\hyperlink{programa_funkcijos_8cpp_a8ef0139ac1bd9eb75f994ab35393cdad}{operator<<}}(std::ostream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&s)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::left\ <<\ std::setw(20)\ <<\ s.\mbox{\hyperlink{class_zmogus_a24b5b4208f386916dc5c1ccf006bdedf}{pavarde}}()\ <<\ std::setw(20)\ <<\ s.\mbox{\hyperlink{class_zmogus_a03de7738fc8f68275e401a3b96954cf0}{vardas}}()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.\mbox{\hyperlink{class_studentas_a49a2519eb2a57b8c0b572cf414ccc3fc}{galutinisVid}}()\ <<\ std::setw(20)\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ s.\mbox{\hyperlink{class_studentas_ab9dcc63a1ad95f1f34db3e5a96449720}{galutinisMed}}()\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 

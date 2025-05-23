@@ -155,7 +155,7 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="fragment"><div class="line">cout &lt;&lt; <span class="stringliteral">&quot;Pasirinkote testuoti klasę: &quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Default konstruktorius ——&quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s1;</div>
-<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;Egzaminas: &quot;</span> &lt;&lt; s1.egzaminas() &lt;&lt; endl;</div>
+<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;Egzaminas: &quot;</span> &lt;&lt; s1.<a class="code hl_function" href="../../da/db8/class_studentas.html#a8ec75244e6c21cf5a6af9f6d02f20fa2">egzaminas</a>() &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Vardo, pavardės konstruktorius ——&quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s2(<span class="stringliteral">&quot;Jonas&quot;</span>, <span class="stringliteral">&quot;Jonaitis&quot;</span>);</div>
@@ -190,14 +190,14 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Copy assignment operatorius ——&quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s6;</div>
 <div class="line">                   s6 = s3;</div>
-<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s6 po s3 kopijavimo - vardas: &quot;</span> &lt;&lt; s6.vardas() </div>
-<div class="line">                   &lt;&lt; <span class="stringliteral">&quot;, pavardė: &quot;</span> &lt;&lt; s6.pavarde() &lt;&lt; endl;</div>
+<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s6 po s3 kopijavimo - vardas: &quot;</span> &lt;&lt; s6.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">vardas</a>() </div>
+<div class="line">                   &lt;&lt; <span class="stringliteral">&quot;, pavardė: &quot;</span> &lt;&lt; s6.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">pavarde</a>() &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Move assignment operatorius ——&quot;</span>  &lt;&lt; endl;</div>
 <div class="line">                   <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> s7;</div>
 <div class="line">                   s7 = std::move(s6);</div>
-<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s7 po movinimo iš s6 - vardas: &quot;</span> &lt;&lt; s7.vardas() </div>
-<div class="line">                   &lt;&lt; <span class="stringliteral">&quot;, pavardė: &quot;</span> &lt;&lt; s7.pavarde() &lt;&lt; endl;</div>
+<div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s7 po movinimo iš s6 - vardas: &quot;</span> &lt;&lt; s7.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">vardas</a>() </div>
+<div class="line">                   &lt;&lt; <span class="stringliteral">&quot;, pavardė: &quot;</span> &lt;&lt; s7.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">pavarde</a>() &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Output’o operatorius ——&quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s3 naudojant operatorių &lt;&lt;: &quot;</span> &lt;&lt; s3 &lt;&lt; endl;</div>
@@ -210,12 +210,16 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;s8 po input: &quot;</span> &lt;&lt; s8 &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; endl;</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Destruktorius ——&quot;</span> &lt;&lt; endl;</div>
-<div class="line">                   testuotiDestruktoriu();</div>
+<div class="line">                   <a class="code hl_function" href="../../d6/d90/programa_funkcijos_8cpp.html#a08dffffaa352966c123e41c1936e17d8">testuotiDestruktoriu</a>();</div>
 <div class="line">                   cout &lt;&lt; <span class="stringliteral">&quot;—— Žmogaus konstuktorius ——&quot;</span> &lt;&lt; endl;</div>
 <div class="line">                   <a class="code hl_class" href="../../d5/d27/class_zmogus.html">Zmogus</a> z(<span class="stringliteral">&quot;Pranas&quot;</span>, <span class="stringliteral">&quot;Pranaitis&quot;</span>);</div>
 <div class="line">                   cout &lt;&lt; z.vardas() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; z.pavarde() &lt;&lt; endl;</div>
 <div class="ttc" id="aclass_studentas_html"><div class="ttname"><a href="../../da/db8/class_studentas.html">Studentas</a></div><div class="ttdef"><b>Definition</b> studentClass.h:28</div></div>
+<div class="ttc" id="aclass_studentas_html_a8ec75244e6c21cf5a6af9f6d02f20fa2"><div class="ttname"><a href="../../da/db8/class_studentas.html#a8ec75244e6c21cf5a6af9f6d02f20fa2">Studentas::egzaminas</a></div><div class="ttdeci">int egzaminas() const</div><div class="ttdef"><b>Definition</b> studentClass.h:71</div></div>
 <div class="ttc" id="aclass_zmogus_html"><div class="ttname"><a href="../../d5/d27/class_zmogus.html">Zmogus</a></div><div class="ttdef"><b>Definition</b> humanClass.h:4</div></div>
+<div class="ttc" id="aclass_zmogus_html_a03de7738fc8f68275e401a3b96954cf0"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">Zmogus::vardas</a></div><div class="ttdeci">std::string vardas() const</div><div class="ttdef"><b>Definition</b> humanClass.h:12</div></div>
+<div class="ttc" id="aclass_zmogus_html_a24b5b4208f386916dc5c1ccf006bdedf"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">Zmogus::pavarde</a></div><div class="ttdeci">std::string pavarde() const</div><div class="ttdef"><b>Definition</b> humanClass.h:13</div></div>
+<div class="ttc" id="aprograma_funkcijos_8cpp_html_a08dffffaa352966c123e41c1936e17d8"><div class="ttname"><a href="../../d6/d90/programa_funkcijos_8cpp.html#a08dffffaa352966c123e41c1936e17d8">testuotiDestruktoriu</a></div><div class="ttdeci">void testuotiDestruktoriu()</div><div class="ttdef"><b>Definition</b> programaFunkcijos.cpp:471</div></div>
 </div><!-- fragment --> <p>Kaip matoma iš žemiau pridėtos ekrano nuotraukos, testo rezultatai nuo v1.2 nepasikeitė: </p>
 <p><img src="https://github.com/user-attachments/assets/b74cb5c9-7950-4a78-99c4-2e5087e991f2" alt="Screenshot 2025-05-07 at 18 29 18" width="659" class="inline"/></p>
 <p>Tačiau, neleidžiama sukurti žmogaus objekto, dėl jo abstraktumo: </p>
@@ -257,8 +261,8 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">        <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; s){</div>
 <div class="line">            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;s) <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"> </div>
-<div class="line">            vardas_ = s.vardas_;</div>
-<div class="line">            pavarde_ = s.pavarde_;</div>
+<div class="line">            vardas_ = s.<a class="code hl_variable" href="../../d5/d27/class_zmogus.html#a09b290c9be6039ce3a94e1557def9b3a">vardas_</a>;</div>
+<div class="line">            pavarde_ = s.<a class="code hl_variable" href="../../d5/d27/class_zmogus.html#a95b83ef4d9bbe9b88d78c17563bafa5a">pavarde_</a>;</div>
 <div class="line">            egzaminas_ = s.egzaminas_;</div>
 <div class="line">            galutinisMed_ = s.galutinisMed_;</div>
 <div class="line">            galutinisVid_ = s.galutinisVid_;</div>
@@ -272,8 +276,8 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">        <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; operator =(<a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp;&amp; s){</div>
 <div class="line">            <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;s) <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"> </div>
-<div class="line">            vardas_ = std::move(s.vardas_);</div>
-<div class="line">            pavarde_ = std::move(s.pavarde_);</div>
+<div class="line">            vardas_ = std::move(s.<a class="code hl_variable" href="../../d5/d27/class_zmogus.html#a09b290c9be6039ce3a94e1557def9b3a">vardas_</a>);</div>
+<div class="line">            pavarde_ = std::move(s.<a class="code hl_variable" href="../../d5/d27/class_zmogus.html#a95b83ef4d9bbe9b88d78c17563bafa5a">pavarde_</a>);</div>
 <div class="line">            egzaminas_ = s.egzaminas_;</div>
 <div class="line">            galutinisMed_ = s.galutinisMed_;</div>
 <div class="line">            galutinisVid_ = s.galutinisVid_;</div>
@@ -291,7 +295,7 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">        };</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//perdengtas įvesties operatorius (panaikintas vardo ir pavardės tikrinimas dėl failuose esančio formatavimo, kur vardas ir pavardė GALI turėti skaičius)</span></div>
-<div class="line">std::istream&amp; operator&gt;&gt;(std::istream&amp; cin, <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; s){</div>
+<div class="line">std::istream&amp; <a class="code hl_function" href="../../d6/d90/programa_funkcijos_8cpp.html#a87ec36ae566010b6db7a89076491c5c9">operator&gt;&gt;</a>(std::istream&amp; cin, <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a>&amp; s){</div>
 <div class="line">            <span class="keywordtype">string</span> vardas, pavarde;</div>
 <div class="line">            vector&lt;int&gt; pazymiai;</div>
 <div class="line">            <span class="keywordtype">int</span> egzaminas, pazymys;</div>
@@ -327,10 +331,16 @@ Terminale rašyti žemiau esančią komandą, norint paleisti konteinerių tyrim
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//perdengtas išvesties operatorius</span></div>
-<div class="line">std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;s) {</div>
-<div class="line">            out &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; s.pavarde() &lt;&lt; std::setw(20) &lt;&lt; s.vardas() &lt;&lt; std::setw(20) &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; s.galutinisVid() &lt;&lt; std::setw(20) &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; s.galutinisMed() &lt;&lt; endl;</div>
+<div class="line">std::ostream&amp; <a class="code hl_function" href="../../d6/d90/programa_funkcijos_8cpp.html#a8ef0139ac1bd9eb75f994ab35393cdad">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code hl_class" href="../../da/db8/class_studentas.html">Studentas</a> &amp;s) {</div>
+<div class="line">            out &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; s.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a24b5b4208f386916dc5c1ccf006bdedf">pavarde</a>() &lt;&lt; std::setw(20) &lt;&lt; s.<a class="code hl_function" href="../../d5/d27/class_zmogus.html#a03de7738fc8f68275e401a3b96954cf0">vardas</a>() &lt;&lt; std::setw(20) &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; s.<a class="code hl_function" href="../../da/db8/class_studentas.html#a49a2519eb2a57b8c0b572cf414ccc3fc">galutinisVid</a>() &lt;&lt; std::setw(20) &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; s.<a class="code hl_function" href="../../da/db8/class_studentas.html#ab9dcc63a1ad95f1f34db3e5a96449720">galutinisMed</a>() &lt;&lt; endl;</div>
 <div class="line">            <span class="keywordflow">return</span> out;</div>
 <div class="line">        }</div>
+<div class="ttc" id="aclass_studentas_html_a49a2519eb2a57b8c0b572cf414ccc3fc"><div class="ttname"><a href="../../da/db8/class_studentas.html#a49a2519eb2a57b8c0b572cf414ccc3fc">Studentas::galutinisVid</a></div><div class="ttdeci">double galutinisVid() const</div><div class="ttdef"><b>Definition</b> studentClass.h:69</div></div>
+<div class="ttc" id="aclass_studentas_html_ab9dcc63a1ad95f1f34db3e5a96449720"><div class="ttname"><a href="../../da/db8/class_studentas.html#ab9dcc63a1ad95f1f34db3e5a96449720">Studentas::galutinisMed</a></div><div class="ttdeci">double galutinisMed() const</div><div class="ttdef"><b>Definition</b> studentClass.h:68</div></div>
+<div class="ttc" id="aclass_zmogus_html_a09b290c9be6039ce3a94e1557def9b3a"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a09b290c9be6039ce3a94e1557def9b3a">Zmogus::vardas_</a></div><div class="ttdeci">string vardas_</div><div class="ttdef"><b>Definition</b> humanClass.h:6</div></div>
+<div class="ttc" id="aclass_zmogus_html_a95b83ef4d9bbe9b88d78c17563bafa5a"><div class="ttname"><a href="../../d5/d27/class_zmogus.html#a95b83ef4d9bbe9b88d78c17563bafa5a">Zmogus::pavarde_</a></div><div class="ttdeci">string pavarde_</div><div class="ttdef"><b>Definition</b> humanClass.h:7</div></div>
+<div class="ttc" id="aprograma_funkcijos_8cpp_html_a87ec36ae566010b6db7a89076491c5c9"><div class="ttname"><a href="../../d6/d90/programa_funkcijos_8cpp.html#a87ec36ae566010b6db7a89076491c5c9">operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;cin, Studentas &amp;s)</div><div class="ttdef"><b>Definition</b> programaFunkcijos.cpp:429</div></div>
+<div class="ttc" id="aprograma_funkcijos_8cpp_html_a8ef0139ac1bd9eb75f994ab35393cdad"><div class="ttname"><a href="../../d6/d90/programa_funkcijos_8cpp.html#a8ef0139ac1bd9eb75f994ab35393cdad">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const Studentas &amp;s)</div><div class="ttdef"><b>Definition</b> programaFunkcijos.cpp:465</div></div>
 </div><!-- fragment --><p> v1.2 versijoje sukurta klasės testavimo programa leidžia testuoti visas minėtas funkcijas, gaunami rezultatai: </p><div class="fragment"><div class="line">—— Default konstruktorius ——</div>
 <div class="line">Egzaminas: 0</div>
 <div class="line"> </div>
